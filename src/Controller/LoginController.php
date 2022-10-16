@@ -22,4 +22,10 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
             'error'         => $error,
           ]);
       }
+
+    #[Route('/logout', name: 'logout', methods: ['GET'])]
+    public function logout()
+    {
+
+    }
   }
