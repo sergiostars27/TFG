@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Game;
+use App\Entity\UserGame;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,11 +22,19 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'home')]
     public function index(): Response
     {
-
-        $games = $this->em->getRepository(Game::class)->findAllGame();
+        $userId=$this->getUser()->getId();
+        $array=$this->em->getRepository(UserGame::class)->findGames($userId);
+        $gamesId = call_user_func_array('array_merge', $array);
+        $games = $this->em->getRepository(Game::class)->findBy(['id' => $gamesId]);
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'games' => $games,
         ]);
+    }
+
+    #[Route('/game/{id}', name: 'gameDetails')]
+    public function gameDetails(Game $game) {
+
+        return $this->render('home/game-details.html.twig', ['game' => $game]);
     }
 }

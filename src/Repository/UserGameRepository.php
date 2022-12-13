@@ -39,6 +39,20 @@ class UserGameRepository extends ServiceEntityRepository
         }
     }
 
+    public function findGames(int $id){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT IDENTITY(user_game.game)
+            FROM App:UserGame user_game
+            WHERE user_game.user = :id
+            ORDER BY user_game.id DESC
+            '
+        )->setParameter('id', $id);
+
+        return $query->getResult();
+    }
+
 //    /**
 //     * @return UserGame[] Returns an array of UserGame objects
 //     */

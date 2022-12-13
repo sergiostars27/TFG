@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Game;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,14 +16,18 @@ class GameType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('cover')
+            ->add('cover', FileType::class, [
+                'label' => 'imagen',
+                'mapped' => false,
+                'required' => false,
+                ])
             ->add('GameSystem', ChoiceType::class, [
                 'choices' => [
-                    'D&D' => 'D&D',
+                    'D&D' => 'D&D', 
 
                 ],
             ])
-            ->add('Submit', SubmitType::class)
+            ->add('submit', SubmitType::class)
         ;
     }
 

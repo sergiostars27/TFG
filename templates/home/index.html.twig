@@ -3,5 +3,22 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    {{dump(games)}}
+
+    {{ parent() }}
+
+    <div class="container mt-5 text-center">
+        <div class="row">
+
+            {% for game in games %}
+                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-3">
+                   <div class="card border-dark">
+                        <a href="{{ path('gameDetails', {id:game.id}) }}" > <img src="/uploads/files/{{ game.cover }}" class="card-img -top"> </a>
+                        <h1 class="card-title"> {{game.name}} </h1>
+                   </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
 {% endblock %}

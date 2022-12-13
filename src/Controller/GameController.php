@@ -7,9 +7,11 @@ use App\Entity\UserGame;
 use App\Form\GameType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class GameController extends AbstractController
 {
@@ -22,7 +24,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game', name: 'game')]
-    public function index(Request $request): Response
+    public function index(Request $request, SluggerInterface $slugger): Response
     {
 
         $game = new Game();
@@ -34,6 +36,24 @@ class GameController extends AbstractController
         $form->handleRequest($request);
 
         if( $form->isSubmitted() && $form->isValid()){
+            $file = $form->get('cover')->getData();
+
+            if( $file ) {
+                $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+            }
+
+            try {
+                $file->move(
+                    $this->getParameter('files_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+            $game->setCover($newFilename);
+
             $this->em->persist($game);
             $this->em->persist($userGame);
             $game->addUser($userGame);

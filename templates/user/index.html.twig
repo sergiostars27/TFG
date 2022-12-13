@@ -3,5 +3,34 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-    {{form(form)}}
+
+    <div class="container bg-white p-3 my-4">
+        {{form_start(form)}}
+        <div class="row">
+            <div class="col-md-12 my-2">
+                {{form_label(form.username,'Nombre de Usuario:')}}
+                {{form_widget(form.username, {attr:{'placeholder':'Usuario...'}})}}
+
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_label(form.password,'Contraseña:')}}
+                {{form_widget(form.password, {attr:{'placeholder':'Contraseña...'}})}}
+
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_label(form.email,'Correo Electrónico:')}}
+                {{form_widget(form.email, {attr:{'placeholder':'ejemplo@correo.com'}})}}
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_widget(form.submit, {attr:{'class':'btn btn-success btn-block'}})}}
+            </div>
+
+        </div>
+        {{form_end(form)}}
+
+        <a href="{{path('login')}}" class="btn btn-info btn-block my-2">Login</a>
+    </div>
 {% endblock %}

@@ -3,5 +3,33 @@
 {% block title %}Hello GameController!{% endblock %}
 
 {% block body %}
-    {{form(form)}}
+    {{ parent() }}
+    <div class="container bg-white p-3 my-4">
+        {{form_start(form)}}
+        <div class="row">
+            <div class="col-md-12 my-2">
+                {{form_label(form.name,'Nombre de la partida:')}}
+                {{form_widget(form.name, {attr:{'placeholder':'Partida...'}})}}
+
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_label(form.cover,'Carátula de la partida:')}}
+                {{form_widget(form.cover)}}
+
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_label(form.GameSystem,'Sistema de juego:')}}
+                {{form_widget(form.GameSystem)}}
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_widget(form.submit, {attr:{'class':'btn btn-success btn-block'}})}}
+            </div>
+
+        </div>
+
+        {{form_end(form)}}
+    </div>
 {% endblock %}
