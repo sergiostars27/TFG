@@ -2,4 +2,20 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
+{% block body %}
+    {{ parent() }}
+
+    <div class="container my-4 p-3">
+            <form action="{{ path('gameDetails', {id:game.id}) }}" method="post">
+
+                <div class="mb-3">
+                    <input type="file" id="image" name="_image"/>
+                </div>
+
+                <button class="btn btn-success my-2" type="submit">Subir imagen</button>
+            </form>
+    </div>
+
+{% endblock %}
+
 
