@@ -22,6 +22,7 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'home')]
     public function index(): Response
     {
+
         $userId=$this->getUser()->getId();
         $array=$this->em->getRepository(UserGame::class)->findGames($userId);
         $gamesId = call_user_func_array('array_merge', $array);
@@ -32,9 +33,4 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/game/{id}', name: 'gameDetails')]
-    public function gameDetails(Game $game) {
-
-        return $this->render('home/game-details.html.twig', ['game' => $game]);
-    }
 }

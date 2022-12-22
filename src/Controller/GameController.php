@@ -66,4 +66,10 @@ class GameController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    #[Route('/game/{id}', name: 'gameDetails')]
+    public function gameDetails(Game $game) {
+
+        return $this->render('home/game-details.html.twig', ['game' => $game]);
+    }
 }

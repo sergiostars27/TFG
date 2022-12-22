@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container p-3 my-4" style="background-image: url('');">
+        <h1>Has sido invitado por {{invitation.sender.username}} a la partida {{invitation.game.name}}.</h1>
+
+        <form method="post">
+            <button class="btn btn-primary" type="submit">Enviar Invitación</button>
+        </form>
+    </div>
+{% endblock %}
+
+
