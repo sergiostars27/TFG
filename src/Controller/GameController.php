@@ -68,28 +68,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/{id}', name: 'gameDetails')]
-    public function gameDetails(Game $game,SluggerInterface $slugger) {
-
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $file = $request->file('photos');
-            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            $safeFilename = $slugger->slug($originalFilename);
-            $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
-
-            try {
-                $file->move(
-                    $this->getParameter('files_directory'),
-                    $newFilename
-                );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
-            }
-            $test = array($newFilename);
-
-            $game->addImage($test);
-            $this->em->flush();
-        }
+    public function gameDetails(Game $game) {
 
         return $this->render('home/game-details.html.twig', ['game' => $game]);
     }

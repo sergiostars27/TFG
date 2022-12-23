@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\GameRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GameRepository::class)]
@@ -28,14 +27,14 @@ class Game
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: UserGame::class, orphanRemoval: true)]
     private Collection $users;
 
+    #[ORM\OneToMany(mappedBy: 'game', targetEntity: Images::class, orphanRemoval: true)]
+    private Collection $images;
+
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: Record::class, orphanRemoval: true)]
     private Collection $records;
 
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: Invitation::class, orphanRemoval: true)]
     private Collection $invitations;
-
-    #[ORM\Column(nullable: true)]
-    private array $imageList = [];
 
     public function __construct($name=null,$cover=null,$GameSystem=null)
     {
@@ -43,6 +42,7 @@ class Game
         $this->cover = $cover;
         $this->GameSystem = $GameSystem;
         $this->users = new ArrayCollection();
+        $this->images = new ArrayCollection();
         $this->records = new ArrayCollection();
         $this->invitations = new ArrayCollection();
     }
@@ -119,6 +119,36 @@ class Game
     }
 
     /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getGame() === $this) {
+                $image->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * @return Collection<int, Record>
      */
     public function getRecords(): Collection
@@ -177,22 +207,4 @@ class Game
 
         return $this;
     }
-
-    public function getImageList(): array
-    {
-        return $this->imageList;
-    }
-
-    public function setImageList(?array $imageList): self
-    {
-        $this->imageList = $imageList;
-
-        return $this;
-    }
-
-    public function addImage(array $image){
-        $this->imageList.array_push($image);
-    }
-
-
 }
