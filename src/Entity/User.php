@@ -46,9 +46,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserGame::class, orphanRemoval: true)]
     private Collection $games;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Images::class, orphanRemoval: true)]
-    private Collection $images;
-
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Record::class, orphanRemoval: true)]
     private Collection $records;
 
@@ -65,7 +62,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
         $this->email = $email;
         $this->games = new ArrayCollection();
-        $this->images = new ArrayCollection();
         $this->records = new ArrayCollection();
         $this->invitationsSend = new ArrayCollection();
         $this->InvitationsRecived = new ArrayCollection();
@@ -178,36 +174,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($game->getUser() === $this) {
                 $game->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Images>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Images $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Images $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getUser() === $this) {
-                $image->setUser(null);
             }
         }
 

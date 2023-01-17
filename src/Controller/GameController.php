@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Game;
 use App\Entity\UserGame;
 use App\Form\GameType;
+use App\Form\InsertImagesType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -68,8 +69,33 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/{id}', name: 'gameDetails')]
-    public function gameDetails(Game $game) {
+    public function gameDetails(Game $game,Request $request,SluggerInterface $slugger) {
 
-        return $this->render('home/game-details.html.twig', ['game' => $game]);
+        $form = $this->createForm(InsertImagesType::class ,$game);
+        $form->handleRequest($request);
+
+        if( $form->isSubmitted() && $form->isValid()){
+            $file = $form->get('imageList')->getData();
+
+            if( $file ) {
+                $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+            }
+
+            try {
+                $file->move(
+                    $this->getParameter('files_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+            $game->addImageList($newFilename);
+
+            $this->em->flush();
+        }
+
+        return $this->render('home/game-details.html.twig', ['game' => $game,'form' => $form->createView()]);
     }
 }

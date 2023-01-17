@@ -3,3 +3,30 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 
+{% block body %}
+    {{ parent() }}
+
+
+    {% for image in game.imageList %}
+        <img src="/uploads/files/{{ image }}">
+    {% endfor %}
+
+    <div class="container p-3 my-4">
+        {{form_start(form)}}
+        <div class="row">
+
+            <div class="col-md-12 my-2">
+                {{form_label(form.imageList,'Carátula de la partida:')}}
+                {{form_widget(form.imageList)}}
+
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form_widget(form.submit, {attr:{'class':'btn btn-success btn-block'}})}}
+            </div>
+
+        </div>
+
+        {{form_end(form)}}
+    </div>
+{% endblock %}
