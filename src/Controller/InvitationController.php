@@ -21,13 +21,14 @@ class InvitationController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/game/{id}/invitation', name: 'app_invitation')]
+    #[Route('/home/game/{id}/invitation', name: 'app_invitation')]
     public function index(Game $game): Response
     {
 
         $invitation = new Invitation();
         $invitation->setGame($game);
         $invitation->setSender($this->getUser());
+        $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['_username'];
@@ -40,7 +41,7 @@ class InvitationController extends AbstractController
         }
 
 
-        return $this->render('invitation/index.html.twig', ['game' => $game]);
+        return $this->render('invitation/index.html.twig', ['game' => $game, 'rol' => $rol]);
     }
 
 
@@ -48,7 +49,7 @@ class InvitationController extends AbstractController
 
 
 
-    #[Route('/invitationList', name: 'invitation_list')]
+    #[Route('/home/invitationList', name: 'invitation_list')]
     public function list(): Response
     {
         $userId=$this->getUser()->getId();

@@ -1,0 +1,13 @@
+{% extends 'baseGame.html.twig' %}
+
+{% block title %}Hello RolesController!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+
+        {% for form in forms %}
+
+            {{ form(form) }}
+        {% endfor %}
+{% endblock %}

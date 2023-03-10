@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class GameController extends AbstractController
@@ -24,7 +25,7 @@ class GameController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/game', name: 'game')]
+    #[Route('/home/game', name: 'game')]
     public function index(Request $request, SluggerInterface $slugger): Response
     {
 
@@ -68,11 +69,12 @@ class GameController extends AbstractController
         ]);
     }
 
-    #[Route('/game/{id}', name: 'gameDetails')]
+    #[Route('/home/game/{id}', name: 'gameDetails')]
     public function gameDetails(Game $game,Request $request,SluggerInterface $slugger) {
 
         $form = $this->createForm(InsertImagesType::class ,$game);
         $form->handleRequest($request);
+        $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
 
         if( $form->isSubmitted() && $form->isValid()){
             $file = $form->get('imageList')->getData();
@@ -96,6 +98,6 @@ class GameController extends AbstractController
             $this->em->flush();
         }
 
-        return $this->render('home/game-details.html.twig', ['game' => $game,'form' => $form->createView()]);
+        return $this->render('home/game-details.html.twig', ['game' => $game,'form' => $form->createView(), 'rol' => $rol]);
     }
 }

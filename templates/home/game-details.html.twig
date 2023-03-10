@@ -6,7 +6,6 @@
 {% block body %}
     {{ parent() }}
 
-
     {% for image in game.imageList %}
         <img src="/uploads/files/{{ image }}">
     {% endfor %}
