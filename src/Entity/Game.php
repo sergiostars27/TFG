@@ -36,6 +36,9 @@ class Game
     #[ORM\Column(nullable: true)]
     private array $imageList = [];
 
+    #[ORM\OneToMany(mappedBy: 'game', targetEntity: Message::class, orphanRemoval: true)]
+    private Collection $messasges;
+
     public function __construct($name=null,$cover=null,$GameSystem=null)
     {
         $this->name = $name;
@@ -44,6 +47,7 @@ class Game
         $this->users = new ArrayCollection();
         $this->records = new ArrayCollection();
         $this->invitations = new ArrayCollection();
+        $this->messasges = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -191,5 +195,35 @@ class Game
 
     public function addImageList(string $image){
         array_push($this->imageList,$image);
+    }
+
+    /**
+     * @return Collection<int, Message>
+     */
+    public function getMessasges(): Collection
+    {
+        return $this->messasges;
+    }
+
+    public function addMessasge(Message $messasge): self
+    {
+        if (!$this->messasges->contains($messasge)) {
+            $this->messasges->add($messasge);
+            $messasge->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessasge(Message $messasge): self
+    {
+        if ($this->messasges->removeElement($messasge)) {
+            // set the owning side to null (unless already changed)
+            if ($messasge->getGame() === $this) {
+                $messasge->setGame(null);
+            }
+        }
+
+        return $this;
     }
 }
