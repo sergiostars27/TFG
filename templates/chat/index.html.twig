@@ -1,0 +1,32 @@
+{% extends 'baseGame.html.twig' %}
+
+{% block title %}Hello ChatController!{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container my-4 p-3">
+    <div class="w-25 h-25 p-3 overflow-auto" style="background-color: #eee;">
+    {% for message in messages %}
+            <a class="" style="font-size: 150%; background-color: #aaa;">{{message.content}}</a>
+    {% endfor %}
+    </div>
+    <form action="{{ path('push', {id:game.id}) }}" method="post"> 
+        <input type="text" id="content" name="_content" placeholder="Your message..." size="50" autocomplete="off">
+        <button class="btn btn-success btn-block my-2" type="submit">Send</button>
+    </form>
+
+    <div id="test"></div>
+
+</div>
+{% endblock %}
+
+    {% block javascripts %}
+    <script>
+        const eventSource = new EventSource("{{ mercure('https://example.com/books/' ~ game.id)|escape('js') }}");
+        eventSource.onmessage = event => { 
+      // Will be called every time an update is published by the server
+          location.reload();
+        }
+    </script>
+      {% endblock %}

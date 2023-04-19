@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\Game;
 use App\Entity\UserGame;
 use App\Form\GameType;
+use App\Form\InsertImagesType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class GameController extends AbstractController
@@ -23,7 +25,7 @@ class GameController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/game', name: 'game')]
+    #[Route('/home/game', name: 'game')]
     public function index(Request $request, SluggerInterface $slugger): Response
     {
 
@@ -67,9 +69,35 @@ class GameController extends AbstractController
         ]);
     }
 
-    #[Route('/game/{id}', name: 'gameDetails')]
-    public function gameDetails(Game $game) {
+    #[Route('/home/game/{id}', name: 'gameDetails')]
+    public function gameDetails(Game $game,Request $request,SluggerInterface $slugger) {
 
-        return $this->render('home/game-details.html.twig', ['game' => $game]);
+        $form = $this->createForm(InsertImagesType::class ,$game);
+        $form->handleRequest($request);
+        $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
+
+        if( $form->isSubmitted() && $form->isValid()){
+            $file = $form->get('imageList')->getData();
+
+            if( $file ) {
+                $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+            }
+
+            try {
+                $file->move(
+                    $this->getParameter('files_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+            $game->addImageList($newFilename);
+
+            $this->em->flush();
+        }
+
+        return $this->render('home/game-details.html.twig', ['game' => $game,'form' => $form->createView(), 'rol' => $rol]);
     }
 }

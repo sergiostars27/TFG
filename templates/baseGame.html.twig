@@ -14,7 +14,7 @@
               <a class="nav-link" href="{{ path('gameDetails', {id:game.id}) }}">Zona Común</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Chat</a>
+              <a class="nav-link" href="{{ path('chat', {id:game.id}) }}">Chat</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Fichas</a>
@@ -25,15 +25,21 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Historial</a>
             </li>
+
+            {% if rol %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('roles', {id:game.id}) }}">Jugadores</a>
+              </li>
+            {% endif %}
+
           </ul>
         </div>
+        <a class="nav-link text-dark" href="/logout">Cerrar sesión</a>
       </div>
     </nav>
+    
 
         
-  {% endblock %}
-
-  {% block javascripts %}
   {% endblock %}
 
 
