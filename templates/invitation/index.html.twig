@@ -13,6 +13,10 @@
                 <input type="text" class="form-control" placeholder="Usuario..." id="username" name="_username"/>
             </div>
 
+            {% if error!= ""%}
+                <div style="color:#FF0000";>{{error}}</div>
+            {% endif %}
+
             <button class="btn btn-success btn-block my-2" type="submit">Enviar Invitación</button>
         </form>
 </div>

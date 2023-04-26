@@ -29,19 +29,34 @@ class InvitationController extends AbstractController
         $invitation->setGame($game);
         $invitation->setSender($this->getUser());
         $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
+        $error = "";
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['_username'];
-            $reciver = $this->em->getRepository(User::class)->findBy(['username' => $username]);
-            if($reciver != null){
-                $invitation->setReciver($reciver[0]);
-                $this->em->persist($invitation);
-                $this->em->flush();
+            $reciver = $this->em->getRepository(User::class)->findOneBy(['username' => $username]);
+            if($reciver == null){
+                $error = "No existe un usuario con ese nombre";
             }
+            else{
+                $invitation_past= $this->em->getRepository(Invitation::class)->findOneBy(['sender' => $this->getUser(),'reciver' => $reciver]);
+                $user_game = $this->em->getRepository(UserGame::class)->findOneBy(["game" => $game,"user" => $reciver]);
+                if($user_game != null){
+                    $error = "El usuario ya se encuentra en la partida";  
+                }
+                else if($invitation_past != null){
+                    $error = "La invitación ya ha sido enviada";
+                }
+                else{
+                    $invitation->setReciver($reciver);
+                    $this->em->persist($invitation);
+                    $this->em->flush();              
+                }
+            }
+
         }
 
 
-        return $this->render('invitation/index.html.twig', ['game' => $game, 'rol' => $rol]);
+        return $this->render('invitation/index.html.twig', ['game' => $game, 'rol' => $rol, 'error' => $error]);
     }
 
 

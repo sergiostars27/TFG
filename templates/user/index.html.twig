@@ -10,18 +10,21 @@
             <div class="col-md-12 my-2">
                 {{form_label(form.username,'Nombre de Usuario:')}}
                 {{form_widget(form.username, {attr:{'placeholder':'Usuario...'}})}}
+                {{form_errors(form.username)}}
 
             </div>
 
             <div class="col-md-12 my-2">
                 {{form_label(form.password,'Contraseña:')}}
                 {{form_widget(form.password, {attr:{'placeholder':'Contraseña...'}})}}
+                {{form_errors(form.username)}}
 
             </div>
 
             <div class="col-md-12 my-2">
                 {{form_label(form.email,'Correo Electrónico:')}}
                 {{form_widget(form.email, {attr:{'placeholder':'ejemplo@correo.com'}})}}
+                {{form_errors(form.username)}}
             </div>
 
             <div class="col-md-12 my-2">
