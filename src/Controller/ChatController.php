@@ -51,7 +51,7 @@ class ChatController extends AbstractController
                 $this->em->flush();
                 $update = new Update(
                     'https://example.com/books/' . trim($game->getId()),
-                    json_encode(['status' => 'soy un frances gordo estupido'])
+                    json_encode(['status' => $content])
                 );
         
                 $hub->publish($update);

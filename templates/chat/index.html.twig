@@ -2,22 +2,94 @@
 
 {% block title %}Hello ChatController!{% endblock %}
 
+{% block stylesheets %}
+<div>
+{{ parent() }}
+<style>
+input {border-style: none; border-bottom-style: solid; border-width:thin;}
+
+.general {border:solid thin black; margin: 0.5em; padding: 0.5em; border-radius: 1em; background: #f7f7f7;}
+
+.die {border:solid thin black; margin: 1px; padding: 1px; border-radius: 5px; display: inline-block;}
+
+.outer {margin: auto; max-width: 750px; background: khaki; border:solid thin black; padding: 0.5em; border-radius: 1em; overflow-y: scroll;}
+
+@viewport { width: 640;}
+
+</style>
+
+
+<script>
+
+  var dieFace = '<svg width="50" height="50"><polygon points="3,3 3,47 47,47 47,3" style="stroke: black; fill: none" /><text fill="black" x="20" y="30" font-family="Verdana" font-size="18">REPLACEME</text></svg>';
+
+  function rollem(){
+  	total = 0;
+    n = document.getElementById('num').value;
+    d = document.getElementById('die').value;
+  	o = document.getElementById('output');
+	p = o.innerHTML;
+	
+    if (p != ''){
+        p = p.concat("<hr>")
+    } else {
+        p = p.concat('<button id="clear" onclick="clearme()" style="float:right;">Clear</button>');
+    }
+    for (i = 0; i < n; i++){
+		r = Math.ceil(Math.random() * d);
+		total += r;
+        p = p.concat("<span> " + dieFace.replace('REPLACEME', r.toString()) + " </span>");
+    }
+    p += " Total: " + total;
+    o.innerHTML = p;
+  }
+
+  function clearme(){
+  	o = document.getElementById('output');
+  	o.innerHTML = "";
+  }
+
+
+</script>
+{% endblock %}
 {% block body %}
+<div>
 {{ parent() }}
 
-<div class="container my-4 p-3">
-    <div class="w-25 h-25 p-3 overflow-auto" style="background-color: #eee;">
-    {% for message in messages %}
-            <a class="" style="font-size: 150%; background-color: #aaa;">{{message.content}}</a>
-    {% endfor %}
+
+<div class="container">
+  <div class="row">
+  
+    <div class="col-6">
+      <div class='outer cover-container my-4 p-3' style=" height: 60vh; overflow:scroll;">
+        <form onsubmit="rollem();return false;" id="control" class='general'>
+          Nº Dados: <input type="number" step="1" id="num" value='3' max="99" min="1" size="4" required> Caras: <input type="number" step="1" id="die" value='6' max="999" min="1" size="4">
+         <input type="submit" id="roll">
+        </form>
+
+        <div id="output" class='general'></div>
+      </div>
     </div>
-    <form action="{{ path('push', {id:game.id}) }}" method="post"> 
-        <input type="text" id="content" name="_content" placeholder="Your message..." size="50" autocomplete="off">
-        <button class="btn btn-success btn-block my-2" type="submit">Send</button>
-    </form>
 
-    <div id="test"></div>
 
+    <div class="col-6">
+      <div class="container my-4 p-3">
+        <div class="p-2 mb-2 bg-white text-dark" style="height: 48vh; overflow-y: scroll; overflow-x: auto; overflow-wrap: break-word; hyphens: auto;">
+            {% for message in messages %}
+                <p>{{message.content}}<br></p>
+            {% endfor %}
+                <p id="recived"></p>
+        </div>
+            <form action="{{ path('push', {id:game.id}) }}" method="post"> 
+            <input type="text" id="content" name="_content" placeholder="Your message..." class="form-control" autocomplete="off">
+            <button class="btn btn-success btn-block my-2" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+</div>
 </div>
 {% endblock %}
 
@@ -26,7 +98,7 @@
         const eventSource = new EventSource("{{ mercure('https://example.com/books/' ~ game.id)|escape('js') }}");
         eventSource.onmessage = event => { 
       // Will be called every time an update is published by the server
-          location.reload();
+          document.getElementById("recived").innerHTML+="<p>"+(JSON.parse(event.data)).status+"<br></p>";
         }
     </script>
       {% endblock %}
