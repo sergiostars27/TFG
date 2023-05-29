@@ -42,7 +42,9 @@ class ChatController extends AbstractController
         $message->setGame($game);
         $message->setUser($this->getUser());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $content = $_POST['_content'];
+
+            $contentJson = json_decode(file_get_contents('php://input'),true);
+            $content = $contentJson["_content"];
             if($content != ""){
                 $date = date("m/d/Y H:i:s"); 
                 $message->setContent($content);

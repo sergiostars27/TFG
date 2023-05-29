@@ -49,6 +49,19 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
   	o.innerHTML = "";
   }
 
+  function mandarMensaje(){
+    const params = {
+      _content: document.getElementById('content').value
+    };
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(params)
+    };
+
+    fetch("{{ path('push', {id:game.id}) }}", options);
+  }
+
 
 </script>
 {% endblock %}
@@ -82,7 +95,7 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
         </div>
             <form action="{{ path('push', {id:game.id}) }}" method="post"> 
             <input type="text" id="content" name="_content" placeholder="Your message..." class="form-control" autocomplete="off">
-            <button class="btn btn-success btn-block my-2" type="submit">Send</button>
+            <button class="btn btn-success btn-block my-2" type="button" onclick="mandarMensaje()">Send</button>
         </form>
       </div>
     </div>
