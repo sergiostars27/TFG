@@ -21,32 +21,19 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 
 <script>
 
-  var dieFace = '<svg width="50" height="50"><polygon points="3,3 3,47 47,47 47,3" style="stroke: black; fill: none" /><text fill="black" x="20" y="30" font-family="Verdana" font-size="18">REPLACEME</text></svg>';
 
-  function rollem(){
-  	total = 0;
-    n = document.getElementById('num').value;
-    d = document.getElementById('die').value;
-  	o = document.getElementById('output');
-	p = o.innerHTML;
-	
-    if (p != ''){
-        p = p.concat("<hr>")
-    } else {
-        p = p.concat('<button id="clear" onclick="clearme()" style="float:right;">Clear</button>');
-    }
-    for (i = 0; i < n; i++){
-		r = Math.ceil(Math.random() * d);
-		total += r;
-        p = p.concat("<span> " + dieFace.replace('REPLACEME', r.toString()) + " </span>");
-    }
-    p += " Total: " + total;
-    o.innerHTML = p;
-  }
+  function mandarRoll(){
+    const params = {
+      dice: document.getElementById('dice').value,
+      num: document.getElementById('num').value
+    };
 
-  function clearme(){
-  	o = document.getElementById('output');
-  	o.innerHTML = "";
+    const options = {
+      method: "POST",
+      body: JSON.stringify(params)
+    };
+
+    fetch("{{ path('roll', {id:game.id}) }}", options);
   }
 
   function mandarMensaje(){
@@ -75,12 +62,12 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
   
     <div class="col-6">
       <div class='outer cover-container my-4 p-3' style=" height: 60vh; overflow:scroll;">
-        <form onsubmit="rollem();return false;" id="control" class='general'>
-          Nº Dados: <input type="number" step="1" id="num" value='3' max="99" min="1" size="4" required> Caras: <input type="number" step="1" id="die" value='6' max="999" min="1" size="4">
+        <form onsubmit="mandarRoll();return false;" id="control" class='general'>
+          Nº Dados: <input type="number" step="1" id="num" value='3' max="99" min="1" size="4" required> Caras: <input type="number" step="1" id="dice" value='6' max="999" min="1" size="4">
          <input type="submit" id="roll">
         </form>
 
-        <div id="output" class='general'></div>
+        <div id="recivedDice" class='general'></div>
       </div>
     </div>
 
@@ -108,10 +95,35 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 
     {% block javascripts %}
     <script>
-        const eventSource = new EventSource("{{ mercure('https://example.com/books/' ~ game.id)|escape('js') }}");
-        eventSource.onmessage = event => { 
+        var dieFace = '<svg width="50" height="50"><polygon points="3,3 3,47 47,47 47,3" style="stroke: black; fill: none" /><text fill="black" x="20" y="30" font-family="Verdana" font-size="18">REPLACEME</text></svg>';
+        const eventSource1 = new EventSource("{{ mercure('https://example.com/books/' ~ game.id)|escape('js') }}");
+        eventSource1.onmessage = event => { 
       // Will be called every time an update is published by the server
           document.getElementById("recived").innerHTML+="<p>"+(JSON.parse(event.data)).status+"<br></p>";
         }
+
+        const eventSource2 = new EventSource("{{ mercure('https://example.com/dice/' ~ game.id)|escape('js') }}");
+        eventSource2.onmessage = event => { 
+      // Will be called every time an update is published by the server
+          valores = JSON.parse(event.data).status;
+          o = document.getElementById('recivedDice');
+	        p = o.innerHTML;
+          if (p != ''){
+            p = p.concat("<hr>")
+          } else {
+            p = p.concat('<button id="clear" onclick="clearme()" style="float:right;">Clear</button>');
+          }
+          for(const element of valores){
+            p = p.concat("<span> " + dieFace.replace('REPLACEME', element.toString()) + " </span>");
+          }
+          o.innerHTML = p;
+
+  } 
+
+  function clearme(){
+  	o = document.getElementById('recivedDice');
+  	o.innerHTML = "";
+  }
+
     </script>
       {% endblock %}

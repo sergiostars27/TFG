@@ -35,6 +35,29 @@ class ChatController extends AbstractController
         ]);
     }
 
+    #[Route('/home/game/{id}/roll', name: 'roll')]
+    public function roll(HubInterface $hub, Game $game): Response
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $contentJson = json_decode(file_get_contents('php://input'),true);
+            $dice = $contentJson["dice"];
+            $num = $contentJson["num"];
+            $randomNumber= [];
+            for($i=0; $i < $num;$i++){
+                array_push($randomNumber,mt_rand(1,$dice));
+            }
+                $update = new Update(
+                    'https://example.com/dice/' . trim($game->getId()),
+                    json_encode(['status' => $randomNumber])
+                );
+        
+                $hub->publish($update);
+            }
+
+        return $this->redirectToRoute('chat',['id' => $game->getId()]);
+    }
+
     #[Route('/home/game/{id}/push', name: 'push')]
     public function publish(HubInterface $hub, Game $game): Response
     {
@@ -63,5 +86,6 @@ class ChatController extends AbstractController
 
         return $this->redirectToRoute('chat',['id' => $game->getId()]);
     }
-}
 
+
+}
