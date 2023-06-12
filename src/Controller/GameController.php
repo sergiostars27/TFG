@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Game;
 use App\Entity\UserGame;
+use App\Entity\History;
+use App\Entity\User;
 use App\Form\GameType;
 use App\Form\InsertImagesType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -93,8 +95,10 @@ class GameController extends AbstractController
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
             }
+            $historial = new History("Nueva imagen subida a la zona común por " . $this->getUser()->getUsername() . ".",$game,$this->getUser());
             $game->addImageList($newFilename);
 
+            $this->em->persist($historial);
             $this->em->flush();
         }
 

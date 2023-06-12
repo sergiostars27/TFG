@@ -58,6 +58,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Message::class, orphanRemoval: true)]
     private Collection $messages;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: History::class, orphanRemoval: true)]
+    private Collection $histories;
+
     public function __construct($id=null, $username=null, $password=null, $email=null)
     {
         $this->id = $id;
@@ -69,6 +72,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->invitationsSend = new ArrayCollection();
         $this->InvitationsRecived = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->histories = new ArrayCollection();
 
     }
 
@@ -298,6 +302,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($message->getUser() === $this) {
                 $message->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, History>
+     */
+    public function getHistories(): Collection
+    {
+        return $this->histories;
+    }
+
+    public function addHistory(History $history): self
+    {
+        if (!$this->histories->contains($history)) {
+            $this->histories->add($history);
+            $history->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistory(History $history): self
+    {
+        if ($this->histories->removeElement($history)) {
+            // set the owning side to null (unless already changed)
+            if ($history->getUser() === $this) {
+                $history->setUser(null);
             }
         }
 

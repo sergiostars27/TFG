@@ -6,7 +6,7 @@
 {{ parent() }}
 
  <div class="container bg-white my-4 p-3">
-        <form action="{{ path('app_invitation', {id:game.id}) }}" method="post">
+        <form action="{{ path('invitation', {id:game.id}) }}" method="post">
 
             <div class="mb-3">
                 <label for="username" class="form-label">Nombre del usuario que se desea invitar:</label>

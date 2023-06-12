@@ -20,10 +20,10 @@
               <a class="nav-link" href="#">Fichas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ path('app_invitation', {id:game.id}) }}">Invitar</a>
+              <a class="nav-link" href="{{ path('invitation', {id:game.id}) }}">Invitar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Historial</a>
+              <a class="nav-link" href="{{ path('history', {id:game.id}) }}">Historial</a>
             </li>
 
             {% if rol %}

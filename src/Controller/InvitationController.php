@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Game;
+use App\Entity\History;
 use App\Entity\Invitation;
 use App\Entity\User;
 use App\Entity\UserGame;
@@ -21,7 +22,7 @@ class InvitationController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/home/game/{id}/invitation', name: 'app_invitation')]
+    #[Route('/home/game/{id}/invitation', name: 'invitation')]
     public function index(Game $game): Response
     {
 
@@ -47,7 +48,9 @@ class InvitationController extends AbstractController
                     $error = "La invitación ya ha sido enviada";
                 }
                 else{
+                    $historial = new History($this->getUser()->getUsername() . " ha invitado a " . $reciver->getUsername() . " ha unirse a la partida.",$game,$this->getUser());
                     $invitation->setReciver($reciver);
+                    $this->em->persist($historial);
                     $this->em->persist($invitation);
                     $this->em->flush();              
                 }
@@ -80,6 +83,7 @@ class InvitationController extends AbstractController
             $userGame->setGame($invitation->getGame());
             $userGame->setUser($this->getUser());
             $userGame->setRol(0);
+            $historial = new History($this->getUser()->getUsername() . " se ha unido a la partida.",$invitation->getGame(),$this->getUser());
             $this->em->persist($userGame);
             $this->em->flush();
         }
