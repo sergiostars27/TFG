@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Game;
+use App\Entity\History;
 use App\Entity\UserGame;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,9 +37,9 @@ class RolesController extends AbstractController
             $form1v = $form1->createView(); 
             $form1->handleRequest($request);
             if($form1->isSubmitted() && $form1->isValid()){
-                echo($users[$i]->getUser()->getId());
-                echo($users[$i]->isRol());
+                $historial = new History("Se ha modificado el rol de " . $users[$i]->getUser()->getUsername() . ".",$game,$this->getUser());
                 $this->em->persist($users[$i]);
+                $this->em->persist($historial);
                 $this->em->flush();
                 return $this->redirectToRoute('roles',array('id' => $game->getId()));
             }

@@ -5,9 +5,13 @@
 {% block body %}
     {{ parent() }}
 
-
+    <div class="container bg-white p-3 my-4">
         {% for form in forms %}
+                <a>{{users[loop.index0].user.username}}</a>
+                {{form_start(form)}}
+                
+                {{form_end(form)}}
 
-            {{ form(form) }}
         {% endfor %}
+    </div>
 {% endblock %}

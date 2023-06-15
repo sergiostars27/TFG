@@ -13,7 +13,9 @@ class RolType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('rol')
+            ->add('rol',null,[
+                'label' => 'Master'
+            ])
             ->add('submit', SubmitType::class)
         ;
     }
