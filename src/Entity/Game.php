@@ -42,6 +42,9 @@ class Game
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: History::class, orphanRemoval: true)]
     private Collection $histories;
 
+    #[ORM\OneToMany(mappedBy: 'game', targetEntity: Ficha::class, orphanRemoval: true)]
+    private Collection $fichas;
+
     public function __construct($name=null,$cover=null,$GameSystem=null)
     {
         $this->name = $name;
@@ -52,6 +55,7 @@ class Game
         $this->invitations = new ArrayCollection();
         $this->messasges = new ArrayCollection();
         $this->histories = new ArrayCollection();
+        $this->fichas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -261,6 +265,36 @@ class Game
             // set the owning side to null (unless already changed)
             if ($history->getGame() === $this) {
                 $history->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ficha>
+     */
+    public function getFichas(): Collection
+    {
+        return $this->fichas;
+    }
+
+    public function addFicha(Ficha $ficha): self
+    {
+        if (!$this->fichas->contains($ficha)) {
+            $this->fichas->add($ficha);
+            $ficha->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFicha(Ficha $ficha): self
+    {
+        if ($this->fichas->removeElement($ficha)) {
+            // set the owning side to null (unless already changed)
+            if ($ficha->getGame() === $this) {
+                $ficha->setGame(null);
             }
         }
 

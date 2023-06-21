@@ -61,6 +61,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: History::class, orphanRemoval: true)]
     private Collection $histories;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Ficha::class, orphanRemoval: true)]
+    private Collection $fichas;
+
     public function __construct($id=null, $username=null, $password=null, $email=null)
     {
         $this->id = $id;
@@ -73,6 +76,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->InvitationsRecived = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->histories = new ArrayCollection();
+        $this->fichas = new ArrayCollection();
 
     }
 
@@ -332,6 +336,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($history->getUser() === $this) {
                 $history->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ficha>
+     */
+    public function getFichas(): Collection
+    {
+        return $this->fichas;
+    }
+
+    public function addFicha(Ficha $ficha): self
+    {
+        if (!$this->fichas->contains($ficha)) {
+            $this->fichas->add($ficha);
+            $ficha->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFicha(Ficha $ficha): self
+    {
+        if ($this->fichas->removeElement($ficha)) {
+            // set the owning side to null (unless already changed)
+            if ($ficha->getUser() === $this) {
+                $ficha->setUser(null);
             }
         }
 

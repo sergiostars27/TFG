@@ -1,0 +1,14 @@
+{% extends 'baseGame.html.twig' %}
+
+{% block title %}Hello FichaController!{% endblock %}
+
+{% block body %}
+
+{{ parent() }}
+    <div>
+        {% for ficha in fichas %}
+            {{dump(ficha)}}
+        {% endfor %}
+        <a href="{{ path('ficha_creacion', {id:game.id}) }}">Creación de ficha</a>
+    </div>
+{% endblock %}

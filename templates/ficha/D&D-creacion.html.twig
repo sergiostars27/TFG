@@ -1,0 +1,379 @@
+{% extends 'base-creacion.html.twig' %}
+
+{% block title %}Hello FichaController!{% endblock %}
+
+{% block body %}
+
+<script>
+
+  function ModificadorFuerza(){
+    var fuerza = document.getElementById("fuerza").value;
+    var valor = -5;
+    if(fuerza >= 2 && fuerza <=3){
+        valor = -4
+    }
+    else if(fuerza >= 4 && fuerza <=5){
+        valor = -3
+    }
+    else if(fuerza >= 6 && fuerza <=7){
+        valor = -2
+    }
+    else if(fuerza >= 8 && fuerza <=9){
+        valor = -1
+    }
+    else if(fuerza >= 10 && fuerza <=11){
+        valor = 0
+    }
+    else if(fuerza >= 12 && fuerza <=13){
+        valor = 1
+    }
+    else if(fuerza >= 14 && fuerza <=15){
+        valor = 2
+    }
+    else if(fuerza >= 16 && fuerza <=17){
+        valor = 3
+    }
+    else if(fuerza >= 18 && fuerza <=19){
+        valor = 4
+    }
+    else if(fuerza >= 20){
+        valor = 5
+    }
+
+    document.getElementById("modificadorf").innerHTML=valor;
+  }
+
+    function ModificadorSabiduria(){
+    var sabiduria = document.getElementById("sabiduria").value;
+    var valor = -5;
+    if(sabiduria >= 2 && sabiduria <=3){
+        valor = -4
+    }
+    else if(sabiduria >= 4 && sabiduria <=5){
+        valor = -3
+    }
+    else if(sabiduria >= 6 && sabiduria <=7){
+        valor = -2
+    }
+    else if(sabiduria >= 8 && sabiduria <=9){
+        valor = -1
+    }
+    else if(sabiduria >= 10 && sabiduria <=11){
+        valor = 0
+    }
+    else if(sabiduria >= 12 && sabiduria <=13){
+        valor = 1
+    }
+    else if(sabiduria >= 14 && sabiduria <=15){
+        valor = 2
+    }
+    else if(sabiduria >= 16 && sabiduria <=17){
+        valor = 3
+    }
+    else if(sabiduria >= 18 && sabiduria <=19){
+        valor = 4
+    }
+    else if(sabiduria >= 20){
+        valor = 5
+    }
+
+    document.getElementById("modificadorS").innerHTML=valor;
+  }
+
+  function ModificadorCarisma(){
+    var carisma = document.getElementById("carisma").value;
+    var valor = -5;
+    if(carisma >= 2 && carisma <=3){
+        valor = -4
+    }
+    else if(carisma >= 4 && carisma <=5){
+        valor = -3
+    }
+    else if(carisma >= 6 && carisma <=7){
+        valor = -2
+    }
+    else if(carisma >= 8 && carisma <=9){
+        valor = -1
+    }
+    else if(carisma >= 10 && carisma <=11){
+        valor = 0
+    }
+    else if(carisma >= 12 && carisma <=13){
+        valor = 1
+    }
+    else if(carisma >= 14 && carisma <=15){
+        valor = 2
+    }
+    else if(carisma >= 16 && carisma <=17){
+        valor = 3
+    }
+    else if(carisma >= 18 && carisma <=19){
+        valor = 4
+    }
+    else if(carisma >= 20){
+        valor = 5
+    }
+
+    document.getElementById("modificadorca").innerHTML=valor;
+  }
+
+    function ModificadorDestreza(){
+    var destreza = document.getElementById("destreza").value;
+    var valor = -5;
+    if(destreza >= 2 && destreza <=3){
+        valor = -4
+    }
+    else if(destreza >= 4 && destreza <=5){
+        valor = -3
+    }
+    else if(destreza >= 6 && destreza <=7){
+        valor = -2
+    }
+    else if(destreza >= 8 && destreza <=9){
+        valor = -1
+    }
+    else if(destreza >= 10 && destreza <=11){
+        valor = 0
+    }
+    else if(destreza >= 12 && destreza <=13){
+        valor = 1
+    }
+    else if(destreza >= 14 && destreza <=15){
+        valor = 2
+    }
+    else if(destreza >= 16 && destreza <=17){
+        valor = 3
+    }
+    else if(destreza >= 18 && destreza <=19){
+        valor = 4
+    }
+    else if(destreza >= 20){
+        valor = 5
+    }
+
+    document.getElementById("modificadord").innerHTML=valor;
+  }
+
+    function ModificadorConstitucion(){
+    var constitucion = document.getElementById("constitucion").value;
+    var valor = -5;
+    if(constitucion >= 2 && constitucion <=3){
+        valor = -4
+    }
+    else if(constitucion >= 4 && constitucion <=5){
+        valor = -3
+    }
+    else if(constitucion >= 6 && constitucion <=7){
+        valor = -2
+    }
+    else if(constitucion >= 8 && constitucion <=9){
+        valor = -1
+    }
+    else if(constitucion >= 10 && constitucion <=11){
+        valor = 0
+    }
+    else if(constitucion >= 12 && constitucion <=13){
+        valor = 1
+    }
+    else if(constitucion >= 14 && constitucion <=15){
+        valor = 2
+    }
+    else if(constitucion >= 16 && constitucion <=17){
+        valor = 3
+    }
+    else if(constitucion >= 18 && constitucion <=19){
+        valor = 4
+    }
+    else if(constitucion >= 20){
+        valor = 5
+    }
+
+    document.getElementById("modificadorc").innerHTML=valor;
+  }
+
+    function ModificadorInteligencia(){
+    var inteligencia = document.getElementById("inteligencia").value;
+    var valor = -5;
+    if(inteligencia >= 2 && inteligencia <=3){
+        valor = -4
+    }
+    else if(inteligencia >= 4 && inteligencia <=5){
+        valor = -3
+    }
+    else if(inteligencia >= 6 && inteligencia <=7){
+        valor = -2
+    }
+    else if(inteligencia >= 8 && inteligencia <=9){
+        valor = -1
+    }
+    else if(inteligencia >= 10 && inteligencia <=11){
+        valor = 0
+    }
+    else if(inteligencia >= 12 && inteligencia <=13){
+        valor = 1
+    }
+    else if(inteligencia >= 14 && inteligencia <=15){
+        valor = 2
+    }
+    else if(inteligencia >= 16 && inteligencia <=17){
+        valor = 3
+    }
+    else if(inteligencia >= 18 && inteligencia <=19){
+        valor = 4
+    }
+    else if(inteligencia >= 20){
+        valor = 5
+    }
+
+    document.getElementById("modificadori").innerHTML=valor;
+  }
+
+</script>
+
+{{ parent() }}
+
+        <label for="raza">Raza</label>
+        <input  type="hidden" name="_test[]" value="Raza">
+        <select id="raza" name="_atributos[]" class="form-control">
+            <option>Enano</option>
+            <option>Elfo</option>
+            <option>Mediano</option>
+            <option>Humano</option>
+            <option>Draconido</option>
+            <option>Gnomo</option>
+            <option>Semi-elfo</option>
+            <option>Semi-Orco</option>
+            <option>Tiefling</option>
+        </select>
+
+        <label for="clase">Clase</label>
+        <input type="hidden" name="_test[]" value="Clase">
+        <select id="clase" name="_atributos[]" class="form-control">
+            <option>Luchador</option>
+            <option>Barbaro</option>
+            <option>Brujo</option>
+            <option>Paladin</option>
+            <option>Ranger</option>
+            <option>Monje</option>
+            <option>Pícaro</option>
+            <option>Clerigo</option>
+            <option>Hechicero</option>
+            <option>Bardo</option>
+            <option>Druida</option>
+            <option>Mago</option>
+        </select>
+
+        <label for="alineacion">Alineación</label>
+        <input type="hidden" name="_test[]" value="Alineacion">
+        <select id="alineacion" name="_atributos[]" class="form-control">
+            <option>Legal bueno</option>
+            <option>Neutral bueno</option>
+            <option>Caótico bueno</option>
+            <option>Legal neutral</option>
+            <option>Neutral</option>
+            <option>Caótico neutral</option>
+            <option>Legal malo</option>
+            <option>Neutral malo</option>
+            <option>Caótico malo</option>
+        </select>
+
+        <label for="altura">Altura</label>
+        <input type="hidden" name="_test[]" value="Altura">
+        <input type="number" id="altura" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <label for="peso">Peso</label>
+        <input type="hidden" name="_test[]" value="Peso">
+        <input type="number" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <label for="altura">Idiomas</label>
+        <input type="hidden" name="_test[]" value="Idiomas">
+        <textarea type="text" id="description" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="ideales">Ideales</label>
+        <input type="hidden" name="_test[]" value="Ideales">
+        <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="rasgos_personalidad">Rasgos de personalidad</label>
+        <input type="hidden" name="_test[]" value="Rasgos de personalidad">
+        <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="vinculos">Vinculos</label>
+        <input type="hidden" name="_test[]" value="Vinculos">
+        <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="defectos">Defectos</label>
+        <input type="hidden" name="_test[]" value="Defectos">
+        <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="transfondo">Transfondo</label>
+        <input type="hidden" name="_test[]" value="Transfondo">
+        <select id="transfondo" name="_atributos[]" class="form-control">
+            <option>Acólito</option>
+            <option>Artesano Gremial</option>
+            <option>Artista</option>
+            <option>Charlatán</option>
+            <option>Criminal</option>
+            <option>Hermitaño</option>
+            <option>Forastero</option>
+            <option>Heroe del pueblo</option>
+            <option>Huérfano</option>
+            <option>Marinero</option>
+            <option>Noble</option>
+            <option>Sabio</option>
+            <option>Soldado</option>
+        </select>
+
+        <label for="fuerza">Fuerza</label>
+        <input type="hidden" name="_test[]" value="Fuerza">
+        <input type="number" id="fuerza" oninput="ModificadorFuerza()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <h1 id="modificadorf">-5</h1>
+
+        <label for="destreza">Destreza</label>
+        <input type="hidden" name="_test[]" value="Destreza">
+        <input type="number" id="destreza" oninput="ModificadorDestreza()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <h1 id="modificadord">-5</h1>
+
+        <label for="constitucion">Constitución</label>
+        <input type="hidden" name="_test[]" value="Constitución">
+        <input type="number" id="constitucion" oninput="ModificadorConstitucion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <h1 id="modificadorc">-5</h1>
+
+        <label for="inteligencia">Inteligencia</label>
+        <input type="hidden" name="_test[]" value="Inteligencia">
+        <input type="number" id="inteligencia" oninput="ModificadorInteligencia()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <h1 id="modificadori">-5</h1>
+
+        <label for="sabiduria">Sabiduria</label>
+        <input type="hidden" name="_test[]" value="Sabiduria">
+        <input type="number" id="sabiduria" oninput="ModificadorSabiduria()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <h1 id="modificadors">-5</h1>
+
+        <label for="carisma">Carisma</label>
+        <input type="hidden" name="_test[]" value="Carisma">
+        <input type="number" id="carisma" oninput="ModificadorCarisma()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <h1 id="modificadorca">-5</h1>
+
+        <label for="inspiracion">Inspiración</label>
+        <input type="hidden" name="_test[]" value="Inspiración">
+        <input type="number" id="inspiracion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="competencia">Competencia</label>
+        <input type="hidden" name="_test[]" value="Competencia">
+        <input type="number" id="competencia" name="_atributos[]" class="form-control" value=2 autocomplete="off">
+
+        <button class="btn btn-success btn-block my-2" type="submit">Send</button>
+        </form>
+
+
+
+        
+    <div>
+        <h1>TEST D&D</h1>
+    </div>
+{% endblock %}

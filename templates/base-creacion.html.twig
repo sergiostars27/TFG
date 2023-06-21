@@ -1,0 +1,18 @@
+{% extends 'baseGame.html.twig' %}
+
+{% block title %}Hello FichaController!{% endblock %}
+
+{% block body %}
+
+{{ parent() }}
+        <form method="post"> 
+        <input type="text" id="name" name="_name" placeholder="Your message..." class="form-control" autocomplete="off">
+        <input type="number" id="age" name="_age" placeholder="Your message..." class="form-control" autocomplete="off">
+        <select id="sexo" name="_gender" class="form-control">
+            <option>Hombre</option>
+            <option>Mujer</option>
+            <option>Otro</option>
+        </select>
+        <textarea type="text" id="description" name="_description" placeholder="Your message..." class="form-control" autocomplete="off" rows="3"></textarea>
+
+{% endblock %}
