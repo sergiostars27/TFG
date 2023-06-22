@@ -6,6 +6,91 @@
 
 <script>
 
+function CheckFuerza(){
+    var estadistica= document.getElementById("modificadorf").value;
+    var competencia = document.getElementById("competencia").value;
+    var check = document.getElementById("checkf");
+    if(check.checked){
+        
+        
+        document.getElementById("fuerzas").value=parseInt(estadistica)+parseInt(competencia);
+    }
+    else{
+        document.getElementById("fuerzas").value=parseInt(estadistica);
+    }
+
+  }
+
+    function CheckSabiduria(){
+    var estadistica = document.getElementById("modificadors").value;
+    var competencia = document.getElementById("competencia").value;
+    var check = document.getElementById("checks");
+    if(check.checked){
+        
+        
+        document.getElementById("sabidursas").value=parseInt(estadistica)+parseInt(competencia);
+    }
+    else{
+        document.getElementById("sabidurias").value=parseInt(estadistica);
+    }
+  }
+
+  function CheckCarisma(){
+    var estadistica = document.getElementById("modificadorc").value;
+    var competencia = document.getElementById("competencia").value;
+    var check = document.getElementById("checkc");
+    if(check.checked){
+        
+        
+        document.getElementById("carismas").value=parseInt(estadistica)+parseInt(competencia);
+    }
+    else{
+        document.getElementById("carismas").value=parseInt(estadistica);
+    }
+  }
+
+    function CheckDestreza(){
+    var estadistica = document.getElementById("modificadord").value;
+    var competencia = document.getElementById("competencia").value;
+    var check = document.getElementById("checkd");
+    if(check.checked){
+        
+        
+        document.getElementById("destrezas").value=parseInt(estadistica)+parseInt(competencia);
+    }
+    else{
+        document.getElementById("destrezas").value=parseInt(estadistica);
+    }
+  }
+
+    function CheckConstitucion(){
+    var estadistica = document.getElementById("modificadorc").value;
+    var competencia = document.getElementById("competencia").value;
+    var check = document.getElementById("checkc");
+    if(check.checked){
+        
+        
+        document.getElementById("constitucions").value=parseInt(estadistica)+parseInt(competencia);
+    }
+    else{
+        document.getElementById("constitucions").value=parseInt(estadistica);
+    }
+  }
+
+    function CheckInteligencia(){
+    var estadistica = document.getElementById("modificadori").value;
+    var competencia = document.getElementById("competencia").value;
+    var check = document.getElementById("checki");
+    if(check.checked){
+        
+        
+        document.getElementById("inteligencias").value=parseInt(estadistica)+parseInt(competencia);
+    }
+    else{
+        document.getElementById("inteligencias").value=parseInt(estadistica);
+    }
+  }
+
   function ModificadorFuerza(){
     var fuerza = document.getElementById("fuerza").value;
     var valor = -5;
@@ -40,7 +125,7 @@
         valor = 5
     }
 
-    document.getElementById("modificadorf").innerHTML=valor;
+    document.getElementById("modificadorf").value=valor;
   }
 
     function ModificadorSabiduria(){
@@ -77,7 +162,7 @@
         valor = 5
     }
 
-    document.getElementById("modificadorS").innerHTML=valor;
+    document.getElementById("modificadors").value=valor;
   }
 
   function ModificadorCarisma(){
@@ -114,7 +199,7 @@
         valor = 5
     }
 
-    document.getElementById("modificadorca").innerHTML=valor;
+    document.getElementById("modificadorca").value=valor;
   }
 
     function ModificadorDestreza(){
@@ -151,7 +236,8 @@
         valor = 5
     }
 
-    document.getElementById("modificadord").innerHTML=valor;
+    document.getElementById("modificadord").value=valor;
+    document.getElementById("iniciativa").value=valor;
   }
 
     function ModificadorConstitucion(){
@@ -188,7 +274,7 @@
         valor = 5
     }
 
-    document.getElementById("modificadorc").innerHTML=valor;
+    document.getElementById("modificadorc").value=valor;
   }
 
     function ModificadorInteligencia(){
@@ -225,7 +311,7 @@
         valor = 5
     }
 
-    document.getElementById("modificadori").innerHTML=valor;
+    document.getElementById("modificadori").value=valor;
   }
 
 </script>
@@ -285,10 +371,6 @@
         <input type="hidden" name="_test[]" value="Peso">
         <input type="number" id="name" name="_atributos[]" class="form-control" autocomplete="off">
 
-        <label for="altura">Idiomas</label>
-        <input type="hidden" name="_test[]" value="Idiomas">
-        <textarea type="text" id="description" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
-
         <label for="ideales">Ideales</label>
         <input type="hidden" name="_test[]" value="Ideales">
         <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
@@ -325,39 +407,91 @@
 
         <label for="fuerza">Fuerza</label>
         <input type="hidden" name="_test[]" value="Fuerza">
-        <input type="number" id="fuerza" oninput="ModificadorFuerza()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <input type="number" id="fuerza" oninput="ModificadorFuerza();CheckFuerza()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <h1 id="modificadorf">-5</h1>
+        <input type="hidden" name="_test[]" value="ModificadorFuerza">
+        <input type="text" id="modificadorf" name="_atributos[]" class="form-control" value=-5 readonly>
 
         <label for="destreza">Destreza</label>
         <input type="hidden" name="_test[]" value="Destreza">
-        <input type="number" id="destreza" oninput="ModificadorDestreza()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <input type="number" id="destreza" oninput="ModificadorDestreza();CheckDestreza()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <h1 id="modificadord">-5</h1>
+        <input type="hidden" name="_test[]" value="ModificadorDestreza">
+        <input type="text" id="modificadord" name="_atributos[]" class="form-control" value=-5 readonly>
 
         <label for="constitucion">Constitución</label>
         <input type="hidden" name="_test[]" value="Constitución">
-        <input type="number" id="constitucion" oninput="ModificadorConstitucion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <input type="number" id="constitucion" oninput="ModificadorConstitucion();CheckConstitucion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <h1 id="modificadorc">-5</h1>
+        <input type="hidden" name="_test[]" value="ModificadorConstitución">
+        <input type="text" id="modificadorc" name="_atributos[]" class="form-control" value=-5 readonly>
 
         <label for="inteligencia">Inteligencia</label>
         <input type="hidden" name="_test[]" value="Inteligencia">
-        <input type="number" id="inteligencia" oninput="ModificadorInteligencia()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <input type="number" id="inteligencia" oninput="ModificadorInteligencia();CheckInteligencia()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <h1 id="modificadori">-5</h1>
+        <input type="hidden" name="_test[]" value="ModificadorInteligencia">
+        <input type="text" id="modificadori" name="_atributos[]" class="form-control" value=-5 readonly>
 
         <label for="sabiduria">Sabiduria</label>
         <input type="hidden" name="_test[]" value="Sabiduria">
-        <input type="number" id="sabiduria" oninput="ModificadorSabiduria()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <input type="number" id="sabiduria" oninput="ModificadorSabiduria();CheckSabiduria()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <h1 id="modificadors">-5</h1>
+        <input type="hidden" name="_test[]" value="ModificadorSabiduria">
+        <input type="text" id="modificadors" name="_atributos[]" class="form-control" value=-5 readonly>
 
         <label for="carisma">Carisma</label>
         <input type="hidden" name="_test[]" value="Carisma">
-        <input type="number" id="carisma" oninput="ModificadorCarisma()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <input type="number" id="carisma" oninput="ModificadorCarisma();CheckCarisma()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <h1 id="modificadorca">-5</h1>
+        <input type="hidden" name="_test[]" value="ModificadorCarisma">
+        <input type="text" id="modificadorca" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="inspiracion">Inspiración</label>
+        <input type="hidden" name="_test[]" value="Inspiración">
+        <input type="number" id="inspiracion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="competencia">Competencia</label>
+        <input type="hidden" name="_test[]" value="Competencia">
+        <input type="number" id="competencia" oninput="CheckFuerza();CheckDestreza();CheckConstitucion();CheckCarisma();CheckInteligencia();CheckSabiduria()" name="_atributos[]" class="form-control" value=2 autocomplete="off">
+
+        <label for="salvacion">Tiradas de salvación</label>
+
+        <label for="fuerzas">Fuerza</label>
+        <input type="hidden" name="_test[]" value="Check fuerza">
+        <input type="checkbox" oninput="CheckFuerza()" id="checkf" name="_atributos[]" class="form-check-input">
+        <input type="hidden" name="_test[]" value="Salvación de fuerza">
+        <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="destrezas">Destreza</label>
+        <input type="hidden" name="_test[]" value="Check destreza">
+        <input type="checkbox" oninput="CheckDestreza()" id="checkd" name="_atributos[]" class="form-check-input">
+        <input type="hidden" name="_test[]" value="Salvación de destreza">
+        <input type="number" id="destrezas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="constitucions">Constitución</label>
+        <input type="hidden" name="_test[]" value="Check constitución">
+        <input type="checkbox" oninput="CheckConstitucion()" id="checkc" name="_atributos[]" class="form-check-input">
+        <input type="hidden" name="_test[]" value="Salvación de constitución">
+        <input type="number" id="constitucions" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="inteligencias">Inteligencia</label>
+        <input type="hidden" name="_test[]" value="Check inteligencia">
+        <input type="checkbox" oninput="CheckInteligencia()" id="checki" name="_atributos[]" class="form-check-input">
+        <input type="hidden" name="_test[]" value="Salvación de inteligencia">
+        <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="sabidurias">Sabiduria</label>
+        <input type="hidden" name="_test[]" value="Check sabiduria">
+        <input type="checkbox" oninput="CheckSabiduria()" id="checks" name="_atributos[]" class="form-check-input">
+        <input type="hidden" name="_test[]" value="Salvación de sabiduria">
+        <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="carismas">Carisma</label>
+        <input type="hidden" name="_test[]" value="Check carisma">
+        <input type="checkbox" oninput="CheckCarisma()" id="checkca" name="_atributos[]" class="form-check-input">
+        <input type="hidden" name="_test[]" value="Salvación de carisma">
+        <input type="number" id="carismas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
         <label for="inspiracion">Inspiración</label>
         <input type="hidden" name="_test[]" value="Inspiración">
@@ -366,6 +500,121 @@
         <label for="competencia">Competencia</label>
         <input type="hidden" name="_test[]" value="Competencia">
         <input type="number" id="competencia" name="_atributos[]" class="form-control" value=2 autocomplete="off">
+
+        <label for="competencais">Otras Competencias</label>
+        <input type="hidden" name="_test[]" value="OtrasCompetencias">
+        <textarea type="text" id="competencias" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="idiomas">Idiomas</label>
+        <input type="hidden" name="_test[]" value="Idiomas">
+        <textarea type="text" id="idiomas" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="invetario">Inventario</label>
+        <input type="hidden" name="_test[]" value="Inventario">
+        <textarea type="text" id="inventario" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="pp">PP</label>
+        <input type="hidden" name="_test[]" value="PP">
+        <input type="number" id="pp" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="gp">GP</label>
+        <input type="hidden" name="_test[]" value="GP">
+        <input type="number" id="gp" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="ep">EP</label>
+        <input type="hidden" name="_test[]" value="EP">
+        <input type="number" id="ep" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="sp">SP</label>
+        <input type="hidden" name="_test[]" value="SP">
+        <input type="number" id="sp" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="cp">CP</label>
+        <input type="hidden" name="_test[]" value="CP">
+        <input type="number" id="cp" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="arma">Armas</label>
+        <input type="hidden" name="_test[]" value="Arma 1">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <input type="hidden" name="_test[]" value="Arma 2">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <input type="hidden" name="_test[]" value="Arma 3">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <label for="arma">Modificador de ataque</label>
+        <input type="hidden" name="_test[]" value="Modificador de ataque 1">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <input type="hidden" name="_test[]" value="Modificador de ataque 2">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <input type="hidden" name="_test[]" value="Modificador de ataque 3">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <label for="arma">Daño</label>
+        <input type="hidden" name="_test[]" value="Daño 1">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <input type="hidden" name="_test[]" value="Daño 2">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <input type="hidden" name="_test[]" value="Daño 3">
+        <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+
+        <label for="accionesespeciales">Acciones especiales</label>
+        <input type="hidden" name="_test[]" value="Acciones especiales">
+        <textarea type="text" id="accionesespeciales" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+
+        <label for="armorclass">Armor Class</label>
+        <input type="hidden" name="_test[]" value="Armor Class">
+        <input type="number" id="armorclass" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+
+        <label for="iniciativa">Iniciativa</label>
+        <input type="hidden" name="_test[]" value="Iniciativa">
+        <input type="text" id="iniciativa" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="velocidad">Velocidad</label>
+        <input type="hidden" name="_test[]" value="Velocidad">
+        <input type="text" id="velocidad" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="dadosgolpe">Dados de golpe</label>
+        <input type="hidden" name="_test[]" value="Dados de golpe">
+        <input type="text" id="dadosgolpe" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="vidamaxima">Vida máxima</label>
+        <input type="hidden" name="_test[]" value="Vida máxima">
+        <input type="number" id="vidamaxima" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="vidaactual">Vida actual</label>
+        <input type="hidden" name="_test[]" value="Vida actual">
+        <input type="number" id="vidaactual" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="vidatemporal">Vida temporal</label>
+        <input type="hidden" name="_test[]" value="Vida temporal">
+        <input type="number" id="vidatemporal" name="_atributos[]" class="form-control" value=-5 readonly>
+
+        <label for="tiradasmuerte">Tiradas de muerte</label>
+        <label for="exitos">Exitos</label>
+        <input type="hidden" name="_test[]" value="Exito1">
+        <input type="checkbox" id="exito1" name="_atributos[]" class="form-check-input">
+
+        <input type="hidden" name="_test[]" value="Exito2">
+        <input type="checkbox" id="exito2" name="_atributos[]" class="form-check-input">
+
+        <input type="hidden" name="_test[]" value="Exito3">
+        <input type="checkbox" id="exito3" name="_atributos[]" class="form-check-input">
+
+        <label for="exitos">Fallos</label>
+        <input type="hidden" name="_test[]" value="Fallo1">
+        <input type="checkbox" id="fallo1" name="_atributos[]" class="form-check-input">
+
+        <input type="hidden" name="_test[]" value="Fallo2">
+        <input type="checkbox" id="fallo2" name="_atributos[]" class="form-check-input">
+
+        <input type="hidden" name="_test[]" value="Fallo3">
+        <input type="checkbox" id="fallo3" name="_atributos[]" class="form-check-input">
 
         <button class="btn btn-success btn-block my-2" type="submit">Send</button>
         </form>
