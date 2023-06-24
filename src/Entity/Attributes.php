@@ -23,6 +23,12 @@ class Attributes
     #[ORM\JoinColumn(nullable: false)]
     private ?Ficha $ficha = null;
 
+    public function __construct(String $name, String $attribute){
+        $this->name = $name;
+        $this->attribute = $attribute;
+
+    }
+
     public function getId(): ?int
     {
         return $this->id;

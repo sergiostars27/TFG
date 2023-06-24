@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ficha;
 use App\Entity\Game;
 use App\Entity\UserGame;
+use Attribute;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,6 +40,7 @@ class FichaController extends AbstractController
         $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ficha = new Ficha();
+            $atributos = new Attribute();
             $ficha->setCharacterName($_POST['_name']);
             $ficha->setAge($_POST['_age']);
             $ficha->setSexo($_POST['_gender']);
@@ -48,12 +50,13 @@ class FichaController extends AbstractController
             $atributos = ($_POST['_atributos']);
             $nombres = ($_POST['_test']);
             for($i = 0; $i<count($atributos);$i++){
-                echo($nombres[$i]);
-                echo($atributos[$i]);
+                $atributos = new Attribute($nombres[$i],$atributos[$i]);
+                $ficha()->addAtributo($atributos);
+                $this->em->persist($atributos);
 
             }
-            //$this->em->persist($ficha);
-            //$this->em->flush();        
+            $this->em->persist($ficha);
+            $this->em->flush();        
         }
         return $this->render('ficha/' . $game->getGameSystem() . '-creacion.html.twig', [
             'controller_name' => 'FichaController',
