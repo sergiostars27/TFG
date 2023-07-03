@@ -572,292 +572,352 @@ function CheckFuerza(){
 </script>
 
 {{ parent() }}
+                <div class="col-md-4 col-xs-12 pb-3">
+                    <label for="raza">Raza</label>
+                    <input  type="hidden" name="_test[]" value="Raza">
+                    <select id="raza" name="_atributos[]" class="form-control">
+                        <option>Enano</option>
+                        <option>Elfo</option>
+                        <option>Mediano</option>
+                        <option>Humano</option>
+                        <option>Draconido</option>
+                        <option>Gnomo</option>
+                        <option>Semi-elfo</option>
+                        <option>Semi-Orco</option>
+                        <option>Tiefling</option>
+                    </select>
+                </div>
 
-        <label for="raza">Raza</label>
-        <input  type="hidden" name="_test[]" value="Raza">
-        <select id="raza" name="_atributos[]" class="form-control">
-            <option>Enano</option>
-            <option>Elfo</option>
-            <option>Mediano</option>
-            <option>Humano</option>
-            <option>Draconido</option>
-            <option>Gnomo</option>
-            <option>Semi-elfo</option>
-            <option>Semi-Orco</option>
-            <option>Tiefling</option>
-        </select>
+                <div class="col-md-4 col-xs-12 pb-3">
+                    <label for="clase">Clase</label>
+                    <input type="hidden" name="_test[]" value="Clase">
+                    <select id="clase" name="_atributos[]" class="form-control">
+                        <option>Luchador</option>
+                        <option>Barbaro</option>
+                        <option>Brujo</option>
+                        <option>Paladin</option>
+                        <option>Ranger</option>
+                        <option>Monje</option>
+                        <option>Pícaro</option>
+                        <option>Clerigo</option>
+                        <option>Hechicero</option>
+                        <option>Bardo</option>
+                        <option>Druida</option>
+                        <option>Mago</option>
+                    </select>
+                </div>
 
-        <label for="clase">Clase</label>
-        <input type="hidden" name="_test[]" value="Clase">
-        <select id="clase" name="_atributos[]" class="form-control">
-            <option>Luchador</option>
-            <option>Barbaro</option>
-            <option>Brujo</option>
-            <option>Paladin</option>
-            <option>Ranger</option>
-            <option>Monje</option>
-            <option>Pícaro</option>
-            <option>Clerigo</option>
-            <option>Hechicero</option>
-            <option>Bardo</option>
-            <option>Druida</option>
-            <option>Mago</option>
-        </select>
+                <div class="col-md-4 col-xs-12 pb-3">
+                    <label for="alineacion">Alineación</label>
+                    <input type="hidden" name="_test[]" value="Alineacion">
+                    <select id="alineacion" name="_atributos[]" class="form-control">
+                        <option>Legal bueno</option>
+                        <option>Neutral bueno</option>
+                        <option>Caótico bueno</option>
+                        <option>Legal neutral</option>
+                        <option>Neutral</option>
+                        <option>Caótico neutral</option>
+                        <option>Legal malo</option>
+                        <option>Neutral malo</option>
+                        <option>Caótico malo</option>
+                    </select>
+                </div>
 
-        <label for="alineacion">Alineación</label>
-        <input type="hidden" name="_test[]" value="Alineacion">
-        <select id="alineacion" name="_atributos[]" class="form-control">
-            <option>Legal bueno</option>
-            <option>Neutral bueno</option>
-            <option>Caótico bueno</option>
-            <option>Legal neutral</option>
-            <option>Neutral</option>
-            <option>Caótico neutral</option>
-            <option>Legal malo</option>
-            <option>Neutral malo</option>
-            <option>Caótico malo</option>
-        </select>
+                <div class="col-md-4 col-xs-12 pb-3">
+                    <label for="transfondo">Transfondo</label>
+                    <input type="hidden" name="_test[]" value="Transfondo">
+                    <select id="transfondo" name="_atributos[]" class="form-control">
+                        <option>Acólito</option>
+                        <option>Artesano Gremial</option>
+                        <option>Artista</option>
+                        <option>Charlatán</option>
+                        <option>Criminal</option>
+                        <option>Hermitaño</option>
+                        <option>Forastero</option>
+                        <option>Heroe del pueblo</option>
+                        <option>Huérfano</option>
+                        <option>Marinero</option>
+                        <option>Noble</option>
+                        <option>Sabio</option>
+                        <option>Soldado</option>
+                    </select>
+                </div>
 
-        <label for="transfondo">Transfondo</label>
-        <input type="hidden" name="_test[]" value="Transfondo">
-        <select id="transfondo" name="_atributos[]" class="form-control">
-            <option>Acólito</option>
-            <option>Artesano Gremial</option>
-            <option>Artista</option>
-            <option>Charlatán</option>
-            <option>Criminal</option>
-            <option>Hermitaño</option>
-            <option>Forastero</option>
-            <option>Heroe del pueblo</option>
-            <option>Huérfano</option>
-            <option>Marinero</option>
-            <option>Noble</option>
-            <option>Sabio</option>
-            <option>Soldado</option>
-        </select>
+                <div class="col-md-2 col-xs-12 pb-3">
+                    <label for="altura">Altura</label>
+                    <input type="hidden" name="_test[]" value="Altura">
+                    <input type="number" id="altura" name="_atributos[]" class="form-control" value="0,0" autocomplete="off">
+                </div>
+
+                <div class="col-md-2 col-xs-12 pb-3">
+                    <label for="peso">Peso</label>
+                    <input type="hidden" name="_test[]" value="Peso">
+                    <input type="number" id="name" name="_atributos[]" class="form-control" value="0,0" autocomplete="off">
+                </div>
+            </div>
+        </div>
     </div>
 
-        <label for="altura">Altura</label>
-        <input type="hidden" name="_test[]" value="Altura">
-        <input type="number" id="altura" name="_atributos[]" class="form-control" autocomplete="off">
+    <div class="container mt-3 bg-white border border-4 rounded border-dark" style="max-width: 90%;">
 
-        <label for="peso">Peso</label>
-        <input type="hidden" name="_test[]" value="Peso">
-        <input type="number" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+        <div class="row">
+            <div class="col-md-1 col-xs-12">
+                <div class="p-2 text-center border border-4 rounded border-dark mt-2">
+                    <label for="fuerza">Fuerza</label>
+                    <input type="hidden" name="_test[]" value="Fuerza">
+                    <input type="number" id="fuerza" oninput="ModificadorFuerza();CheckFuerza();CheckAtletismo()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="hidden" name="_test[]" value="ModificadorFuerza">
+                    <input type="text" id="modificadorf" name="_atributos[]" class="form-control" value=-5 readonly>
+                </div>
 
-        <label for="ideales">Ideales</label>
-        <input type="hidden" name="_test[]" value="Ideales">
-        <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+                <div class="p-2 text-center border border-4 rounded border-dark mt-2">
+                    <label for="destreza">Destreza</label>
+                    <input type="hidden" name="_test[]" value="Destreza">
+                    <input type="number" id="destreza" oninput="ModificadorDestreza();CheckDestreza();CheckAcrobacias();CheckManos();CheckSigilo()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="hidden" name="_test[]" value="ModificadorDestreza">
+                    <input type="text" id="modificadord" name="_atributos[]" class="form-control" value=-5 readonly>
+                </div>
 
-        <label for="rasgos_personalidad">Rasgos de personalidad</label>
-        <input type="hidden" name="_test[]" value="Rasgos de personalidad">
-        <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+                <div class="p-2 text-center border border-4 rounded border-dark mt-2">
+                    <label for="constitucion">Constitución</label>
+                    <input type="hidden" name="_test[]" value="Constitución">
+                    <input type="number" id="constitucion" oninput="ModificadorConstitucion();CheckConstitucion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="hidden" name="_test[]" value="ModificadorConstitución">
+                    <input type="text" id="modificadorc" name="_atributos[]" class="form-control" value=-5 readonly>
+                </div>
 
-        <label for="vinculos">Vinculos</label>
-        <input type="hidden" name="_test[]" value="Vinculos">
-        <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+                <div class="p-2 text-center border border-4 rounded border-dark mt-2">
+                    <label for="inteligencia">Inteligencia</label>
+                    <input type="hidden" name="_test[]" value="Inteligencia">
+                    <input type="number" id="inteligencia" oninput="ModificadorInteligencia();CheckInteligencia();CheckArcana();CheckHistoria();CheckInvestigacion();CheckNaturaleza();CheckReligion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="hidden" name="_test[]" value="ModificadorInteligencia">
+                    <input type="text" id="modificadori" name="_atributos[]" class="form-control" value=-5 readonly>
+                </div>
 
-        <label for="defectos">Defectos</label>
-        <input type="hidden" name="_test[]" value="Defectos">
-        <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+                <div class="p-2 text-center border border-4 rounded border-dark mt-2">
+                    <label for="sabiduria">Sabiduria</label>
+                    <input type="hidden" name="_test[]" value="Sabiduria">
+                    <input type="number" id="sabiduria" oninput="ModificadorSabiduria();CheckSabiduria();CheckAnimales();CheckIntenciones();CheckMedicina();CheckPercepcion();CheckSupervivencia()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="hidden" name="_test[]" value="ModificadorSabiduria">
+                    <input type="text" id="modificadors" name="_atributos[]" class="form-control" value=-5 readonly>
+                </div>
 
-        <label for="fuerza">Fuerza</label>
-        <input type="hidden" name="_test[]" value="Fuerza">
-        <input type="number" id="fuerza" oninput="ModificadorFuerza();CheckFuerza();CheckAtletismo()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                <div class="p-2 text-center border border-4 rounded border-dark mt-2">
+                    <label for="carisma">Carisma</label>
+                    <input type="hidden" name="_test[]" value="Carisma">
+                    <input type="number" id="carisma" oninput="ModificadorCarisma();CheckCarisma();CheckEngañar();CheckIntimidacion();CheckInterpretacion();CheckPersuasion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="hidden" name="_test[]" value="ModificadorCarisma">
+                    <input type="text" id="modificadorca" name="_atributos[]" class="form-control" value=-5 readonly>
+                </div>
+            </div>
 
-        <input type="hidden" name="_test[]" value="ModificadorFuerza">
-        <input type="text" id="modificadorf" name="_atributos[]" class="form-control" value=-5 readonly>
+            <div class="col-md-3 col-xs-12 pt-2">
+                <label for="inspiracion">Inspiración</label>
+                <input type="hidden" name="_test[]" value="Inspiración">
+                <input type="number" id="inspiracion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="destreza">Destreza</label>
-        <input type="hidden" name="_test[]" value="Destreza">
-        <input type="number" id="destreza" oninput="ModificadorDestreza();CheckDestreza();CheckAcrobacias();CheckManos();CheckSigilo()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                <label for="competencia" class="pt-3">Competencia</label>
+                <input type="hidden" name="_test[]" value="Competencia">
+                <input type="number" id="competencia" oninput="CheckFuerza();CheckDestreza();CheckConstitucion();CheckCarisma();CheckArcana();CheckSabiduria();CheckPersuasion();CheckIntimidacion();CheckEngañar();CheckSupervivencia();CheckInterpretacion();CheckMedicina();CheckIntenciones();CheckAnimales();CheckReligion();CheckNaturaleza();CheckInvestigacion();CheckHistoria();CheckInteligencia();CheckSigilo();CheckManos();CheckAcrobacias();CheckAtletismo();CheckPercepcion();" name="_atributos[]" class="form-control" value=2 autocomplete="off">
 
-        <input type="hidden" name="_test[]" value="ModificadorDestreza">
-        <input type="text" id="modificadord" name="_atributos[]" class="form-control" value=-5 readonly>
+                <div class="p-2 border border-4 rounded border-dark mt-4">
+                    <div class="text-center">
+                        <label for="salvacion">Tiradas de salvación</label>
+                    </div>
 
-        <label for="constitucion">Constitución</label>
-        <input type="hidden" name="_test[]" value="Constitución">
-        <input type="number" id="constitucion" oninput="ModificadorConstitucion();CheckConstitucion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <div class="form-check form-check-inline">
+                            <input type="hidden" name="_test[]" value="Check fuerza">
+                            <input class="form-check-input" type="checkbox" id="checkf" name="_atributos[]" oninput="CheckFuerza()">
+                            <input type="hidden" name="_test[]" value="Salvación de fuerza">
+                            <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="fuerzas">Fuerza</label> 
+                        </div>
 
-        <input type="hidden" name="_test[]" value="ModificadorConstitución">
-        <input type="text" id="modificadorc" name="_atributos[]" class="form-control" value=-5 readonly>
+                        <div class="form-check form-check-inline pt-2">
+                            <input type="hidden" name="_test[]" value="Check destreza">
+                            <input type="checkbox" oninput="CheckDestreza()" id="checkd" name="_atributos[]" class="form-check-input">
+                            <input type="hidden" name="_test[]" value="Salvación de destreza">
+                            <input type="number" id="destrezas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="destrezas">Destreza</label>
+                        </div>  
 
-        <label for="inteligencia">Inteligencia</label>
-        <input type="hidden" name="_test[]" value="Inteligencia">
-        <input type="number" id="inteligencia" oninput="ModificadorInteligencia();CheckInteligencia();CheckArcana();CheckHistoria();CheckInvestigacion();CheckNaturaleza();CheckReligion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <div class="form-check form-check-inline pt-2">
+                            <input type="hidden" name="_test[]" value="Check constitución">
+                            <input type="checkbox" oninput="CheckConstitucion()" id="checkc" name="_atributos[]" class="form-check-input">
+                            <input type="hidden" name="_test[]" value="Salvación de constitución">
+                            <input type="number" id="constitucions" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="constitucions">Constitución</label>
+                        </div>
 
-        <input type="hidden" name="_test[]" value="ModificadorInteligencia">
-        <input type="text" id="modificadori" name="_atributos[]" class="form-control" value=-5 readonly>
+                        <div class="form-check form-check-inline pt-2">
+                            <input type="hidden" name="_test[]" value="Check inteligencia">
+                            <input type="checkbox" oninput="CheckInteligencia()" id="checki" name="_atributos[]" class="form-check-input">
+                            <input type="hidden" name="_test[]" value="Salvación de inteligencia">
+                            <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="inteligencias">Inteligencia</label>
+                        </div>
 
-        <label for="sabiduria">Sabiduria</label>
-        <input type="hidden" name="_test[]" value="Sabiduria">
-        <input type="number" id="sabiduria" oninput="ModificadorSabiduria();CheckSabiduria();CheckAnimales();CheckIntenciones();CheckMedicina();CheckPercepcion();CheckSupervivencia()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <div class="form-check form-check-inline pt-2">
+                            <input type="hidden" name="_test[]" value="Check sabiduria">
+                            <input type="checkbox" oninput="CheckSabiduria()" id="checks" name="_atributos[]" class="form-check-input">
+                            <input type="hidden" name="_test[]" value="Salvación de sabiduria">
+                            <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="sabidurias">Sabiduria</label>
+                        </div>
 
-        <input type="hidden" name="_test[]" value="ModificadorSabiduria">
-        <input type="text" id="modificadors" name="_atributos[]" class="form-control" value=-5 readonly>
+                        <div class="form-check form-check-inline pt-2">
+                            <input type="hidden" name="_test[]" value="Check carisma">
+                            <input type="checkbox" oninput="CheckCarisma()" id="checkca" name="_atributos[]" class="form-check-input">
+                            <input type="hidden" name="_test[]" value="Salvación de carisma">
+                            <input type="number" id="carismas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="carismas">Carisma</label>
+                        </div>
 
-        <label for="carisma">Carisma</label>
-        <input type="hidden" name="_test[]" value="Carisma">
-        <input type="number" id="carisma" oninput="ModificadorCarisma();CheckCarisma();CheckEngañar();CheckIntimidacion();CheckInterpretacion();CheckPersuasion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                </div>
+            </div>
+        </div>
 
-        <input type="hidden" name="_test[]" value="ModificadorCarisma">
-        <input type="text" id="modificadorca" name="_atributos[]" class="form-control" value=-5 readonly>
+                        <div class="p-2 text-center border border-4 rounded border-dark mt-4">
+                    <label for="ideales">Ideales</label>
+                    <input type="hidden" name="_test[]" value="Ideales">
+                    <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
 
-        <label for="inspiracion">Inspiración</label>
-        <input type="hidden" name="_test[]" value="Inspiración">
-        <input type="number" id="inspiracion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="rasgos_personalidad">Rasgos de personalidad</label>
+                    <input type="hidden" name="_test[]" value="Rasgos de personalidad">
+                    <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
 
-        <label for="competencia">Competencia</label>
-        <input type="hidden" name="_test[]" value="Competencia">
-        <input type="number" id="competencia" oninput="CheckFuerza();CheckDestreza();CheckConstitucion();CheckCarisma();CheckArcana();CheckSabiduria();CheckPersuasion();CheckIntimidacion();CheckEngañar();CheckSupervivencia();CheckInterpretacion();CheckMedicina();CheckIntenciones();CheckAnimales();CheckReligion();CheckNaturaleza();CheckInvestigacion();CheckHistoria();CheckInteligencia();CheckSigilo();CheckManos();CheckAcrobacias();CheckAtletismo();CheckPercepcion();" name="_atributos[]" class="form-control" value=2 autocomplete="off">
+                    <label for="vinculos">Vinculos</label>
+                    <input type="hidden" name="_test[]" value="Vinculos">
+                    <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
 
-        <label for="salvacion">Tiradas de salvación</label>
+                    <label for="defectos">Defectos</label>
+                    <input type="hidden" name="_test[]" value="Defectos">
+                    <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+                </div>
 
-        <label for="fuerzas">Fuerza</label>
-        <input type="hidden" name="_test[]" value="Check fuerza">
-        <input type="checkbox" oninput="CheckFuerza()" id="checkf" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Salvación de fuerza">
-        <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+        <div class="p-2 border border-4 rounded border-dark mt-4">
+                    <label for="salvacion">Habilidades</label>
 
-        <label for="destrezas">Destreza</label>
-        <input type="hidden" name="_test[]" value="Check destreza">
-        <input type="checkbox" oninput="CheckDestreza()" id="checkd" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Salvación de destreza">
-        <input type="number" id="destrezas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="acrobacias">Acrobacias</label>
+                    <input type="hidden" name="_test[]" value="Check acrobacias">
+                    <input type="checkbox" oninput="CheckAcrobacias()" id="checkacrobacias" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Acrobacias">
+                    <input type="number" id="acrobacias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="constitucions">Constitución</label>
-        <input type="hidden" name="_test[]" value="Check constitución">
-        <input type="checkbox" oninput="CheckConstitucion()" id="checkc" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Salvación de constitución">
-        <input type="number" id="constitucions" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="manejoanimales">Manejo de animales</label>
+                    <input type="hidden" name="_test[]" value="Check manejo animales">
+                    <input type="checkbox" oninput="CheckAnimales()" id="checkanimales" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Manejo de animales">
+                    <input type="number" id="manejoanimales" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="inteligencias">Inteligencia</label>
-        <input type="hidden" name="_test[]" value="Check inteligencia">
-        <input type="checkbox" oninput="CheckInteligencia()" id="checki" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Salvación de inteligencia">
-        <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="arcana">Arcana</label>
+                    <input type="hidden" name="_test[]" value="Check arcana">
+                    <input type="checkbox" oninput="CheckArcana()" id="checkarcana" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Arcana">
+                    <input type="number" id="arcana" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="sabidurias">Sabiduria</label>
-        <input type="hidden" name="_test[]" value="Check sabiduria">
-        <input type="checkbox" oninput="CheckSabiduria()" id="checks" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Salvación de sabiduria">
-        <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="atletismo">Atletismo</label>
+                    <input type="hidden" name="_test[]" value="Check atletismo">
+                    <input type="checkbox" oninput="CheckAtletismo()" id="checkatletismo" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Atletismo">
+                    <input type="number" id="atletismo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="carismas">Carisma</label>
-        <input type="hidden" name="_test[]" value="Check carisma">
-        <input type="checkbox" oninput="CheckCarisma()" id="checkca" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Salvación de carisma">
-        <input type="number" id="carismas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="engañar">Engañar</label>
+                    <input type="hidden" name="_test[]" value="Check engañar">
+                    <input type="checkbox" oninput="CheckEngañar()" id="checkengañar" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Engañar">
+                    <input type="number" id="engañar" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="salvacion">Habilidades</label>
+                    <label for="historia">Historia</label>
+                    <input type="hidden" name="_test[]" value="Check historia">
+                    <input type="checkbox" oninput="CheckHistoria()" id="checkhistoria" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Historia">
+                    <input type="number" id="historia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="acrobacias">Acrobacias</label>
-        <input type="hidden" name="_test[]" value="Check acrobacias">
-        <input type="checkbox" oninput="CheckAcrobacias()" id="checkacrobacias" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Acrobacias">
-        <input type="number" id="acrobacias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="averiguarintenciones">Averiguar intenciones</label>
+                    <input type="hidden" name="_test[]" value="Check intenciones">
+                    <input type="checkbox" oninput="CheckIntenciones()" id="checkintenciones" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Averiguar intenciones">
+                    <input type="number" id="averiguarintenciones" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="manejoanimales">Manejo de animales</label>
-        <input type="hidden" name="_test[]" value="Check manejo animales">
-        <input type="checkbox" oninput="CheckAnimales()" id="checkanimales" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Manejo de animales">
-        <input type="number" id="manejoanimales" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="intimidacion">Intimidación</label>
+                    <input type="hidden" name="_test[]" value="Check intimidación">
+                    <input type="checkbox" oninput="CheckIntimidacion()" id="checkintimidacion" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Intimidación">
+                    <input type="number" id="intimidacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="arcana">Arcana</label>
-        <input type="hidden" name="_test[]" value="Check arcana">
-        <input type="checkbox" oninput="CheckArcana()" id="checkarcana" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Arcana">
-        <input type="number" id="arcana" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="investigacion">Investigación</label>
+                    <input type="hidden" name="_test[]" value="Check investigación">
+                    <input type="checkbox" oninput="CheckInvestigacion()" id="checkinvestigacion" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Investigación">
+                    <input type="number" id="investigacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="atletismo">Atletismo</label>
-        <input type="hidden" name="_test[]" value="Check atletismo">
-        <input type="checkbox" oninput="CheckAtletismo()" id="checkatletismo" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Atletismo">
-        <input type="number" id="atletismo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="medicina">Medicina</label>
+                    <input type="hidden" name="_test[]" value="Check medicina">
+                    <input type="checkbox" oninput="CheckMedicina()" id="checkmedicina" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Medicina">
+                    <input type="number" id="medicina" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="engañar">Engañar</label>
-        <input type="hidden" name="_test[]" value="Check engañar">
-        <input type="checkbox" oninput="CheckEngañar()" id="checkengañar" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Engañar">
-        <input type="number" id="engañar" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="naturaleza">Naturaleza</label>
+                    <input type="hidden" name="_test[]" value="Check naturaleza">
+                    <input type="checkbox" oninput="CheckNaturaleza()" id="checknaturaleza" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Naturaleza">
+                    <input type="number" id="naturaleza" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="historia">Historia</label>
-        <input type="hidden" name="_test[]" value="Check historia">
-        <input type="checkbox" oninput="CheckHistoria()" id="checkhistoria" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Historia">
-        <input type="number" id="historia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="percepcion">Percepción</label>
+                    <input type="hidden" name="_test[]" value="Check percepción">
+                    <input type="checkbox" oninput="CheckPercepcion()" id="checkpercepcion" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Percepción">
+                    <input type="number" id="percepcion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="averiguarintenciones">Averiguar intenciones</label>
-        <input type="hidden" name="_test[]" value="Check intenciones">
-        <input type="checkbox" oninput="CheckIntenciones()" id="checkintenciones" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Averiguar intenciones">
-        <input type="number" id="averiguarintenciones" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="persuasion">Persuasión</label>
+                    <input type="hidden" name="_test[]" value="Check ersuasión">
+                    <input type="checkbox" oninput="CheckPersuasion()" id="checkpersuasion" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Persuasión">
+                    <input type="number" id="persuasion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="intimidacion">Intimidación</label>
-        <input type="hidden" name="_test[]" value="Check intimidación">
-        <input type="checkbox" oninput="CheckIntimidacion()" id="checkintimidacion" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Intimidación">
-        <input type="number" id="intimidacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="religion">Religión</label>
+                    <input type="hidden" name="_test[]" value="Check religión">
+                    <input type="checkbox" oninput="CheckReligion()" id="checkreligion" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Religión">
+                    <input type="number" id="religion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="investigacion">Investigación</label>
-        <input type="hidden" name="_test[]" value="Check investigación">
-        <input type="checkbox" oninput="CheckInvestigacion()" id="checkinvestigacion" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Investigación">
-        <input type="number" id="investigacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="interpretacion">Interpretación</label>
+                    <input type="hidden" name="_test[]" value="Check interpretación">
+                    <input type="checkbox" oninput="CheckInterpretacion()" id="checkinterpretacion" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Interpretación">
+                    <input type="number" id="interpretacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="medicina">Medicina</label>
-        <input type="hidden" name="_test[]" value="Check medicina">
-        <input type="checkbox" oninput="CheckMedicina()" id="checkmedicina" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Medicina">
-        <input type="number" id="medicina" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="juegomanos">Juego de manos</label>
+                    <input type="hidden" name="_test[]" value="Check juego de manos">
+                    <input type="checkbox" oninput="CheckManos()" id="checkmanos" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Juego de manos">
+                    <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="naturaleza">Naturaleza</label>
-        <input type="hidden" name="_test[]" value="Check naturaleza">
-        <input type="checkbox" oninput="CheckNaturaleza()" id="checknaturaleza" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Naturaleza">
-        <input type="number" id="naturaleza" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="sigilo">Sigilo</label>
+                    <input type="hidden" name="_test[]" value="Check sigilo">
+                    <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Sigilo">
+                    <input type="number" id="sigilo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
 
-        <label for="percepcion">Percepción</label>
-        <input type="hidden" name="_test[]" value="Check percepción">
-        <input type="checkbox" oninput="CheckPercepcion()" id="checkpercepcion" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Percepción">
-        <input type="number" id="percepcion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
-
-        <label for="persuasion">Persuasión</label>
-        <input type="hidden" name="_test[]" value="Check ersuasión">
-        <input type="checkbox" oninput="CheckPersuasion()" id="checkpersuasion" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Persuasión">
-        <input type="number" id="persuasion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
-
-        <label for="religion">Religión</label>
-        <input type="hidden" name="_test[]" value="Check religión">
-        <input type="checkbox" oninput="CheckReligion()" id="checkreligion" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Religión">
-        <input type="number" id="religion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
-
-        <label for="interpretacion">Interpretación</label>
-        <input type="hidden" name="_test[]" value="Check interpretación">
-        <input type="checkbox" oninput="CheckInterpretacion()" id="checkinterpretacion" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Interpretación">
-        <input type="number" id="interpretacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
-
-        <label for="juegomanos">Juego de manos</label>
-        <input type="hidden" name="_test[]" value="Check juego de manos">
-        <input type="checkbox" oninput="CheckManos()" id="checkmanos" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Juego de manos">
-        <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value=0 autocomplete="off">
-
-        <label for="sigilo">Sigilo</label>
-        <input type="hidden" name="_test[]" value="Check sigilo">
-        <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Sigilo">
-        <input type="number" id="sigilo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
-
-        <label for="supervivencia">Supervivencia</label>
-        <input type="hidden" name="_test[]" value="Check supervivencia">
-        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" name="_atributos[]" class="form-check-input">
-        <input type="hidden" name="_test[]" value="Supervivencia">
-        <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <label for="supervivencia">Supervivencia</label>
+                    <input type="hidden" name="_test[]" value="Check supervivencia">
+                    <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" name="_atributos[]" class="form-check-input">
+                    <input type="hidden" name="_test[]" value="Supervivencia">
+                    <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                </div>
 
         <label for="inspiracion">Inspiración</label>
         <input type="hidden" name="_test[]" value="Inspiración">
@@ -981,6 +1041,7 @@ function CheckFuerza(){
 
         <input type="hidden" name="_test[]" value="Fallo3">
         <input type="checkbox" id="fallo3" name="_atributos[]" class="form-check-input">
+    </div>
 
         <button class="btn btn-success btn-block my-2" type="submit">Send</button>
         </form>
