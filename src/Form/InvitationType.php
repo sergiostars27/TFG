@@ -15,7 +15,10 @@ class InvitationType extends AbstractType
         $builder
 
             ->add('reciver')
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,
+            [
+                'label' => 'Enviar invitación'
+            ])
         ;
     }
 

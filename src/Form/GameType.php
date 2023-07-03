@@ -24,10 +24,14 @@ class GameType extends AbstractType
             ->add('GameSystem', ChoiceType::class, [
                 'choices' => [
                     'D&D' => 'D&D', 
+                    'Llamada de Cthulhu' => 'Llamada de Cthulhu',
 
                 ],
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,
+            [
+                'label' => 'Crear partida'
+            ])
         ;
     }
 

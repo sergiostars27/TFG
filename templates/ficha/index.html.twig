@@ -5,10 +5,28 @@
 {% block body %}
 
 {{ parent() }}
-    <div>
-        {% for ficha in fichas %}
-            {{dump(ficha)}}
-        {% endfor %}
-        <a href="{{ path('ficha_creacion', {id:game.id}) }}">Creación de ficha</a>
+    <div class="container mt-5 text-center">
+        <div class="row">
+            {% for ficha in fichas %}
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 py-3">
+                    <div class="card border-dark" style="width: 18rem; hight: 18rem;">
+                        <a href="">
+                        {% if game.GameSystem == "D&D" %}
+                            <img src="/img/DnD.png" class="card-img-top"> 
+                        {% elseif game.GameSystem == "Llamada de Cthulhu" %}
+                            <img src="/img/cthulhu.png" class="card-img-top"> 
+                        {% endif %}
+                        </a>
+                        <h1 class="card-title"> {{ficha.characterName}} </h1>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-3">
+                <div class="card border-dark" style="width: 18rem; hight: 18rem;">
+                    <a href={{ path('ficha_creacion', {id:game.id}) }} > <img src="/img/Plus.png" class="card-img-top"> </a>
+                    <h1 class="card-title">Crear ficha</h1>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

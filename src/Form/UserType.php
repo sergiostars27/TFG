@@ -18,7 +18,10 @@ class UserType extends AbstractType
             ->add('username',TextType::class,['required' => false])
             ->add('password',TextType::class,['required' => false])
             ->add('email',TextType::class,['required' => false])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,
+            [
+                'label' => 'Registrarse'
+            ])
         ;
     }
 

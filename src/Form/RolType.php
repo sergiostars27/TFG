@@ -16,7 +16,10 @@ class RolType extends AbstractType
             ->add('rol',null,[
                 'label' => 'Master'
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,
+            [
+                'label' => 'Confirmar'
+            ])
         ;
     }
 

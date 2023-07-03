@@ -85,16 +85,12 @@ class GameController extends AbstractController
                 $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
-            }
 
-            try {
                 $file->move(
                     $this->getParameter('files_directory'),
-                    $newFilename
-                );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
+                    $newFilename);
             }
+
             $historial = new History("Nueva imagen subida a la zona común por " . $this->getUser()->getUsername() . ".",$game,$this->getUser());
             $game->addImageList($newFilename);
 
@@ -103,5 +99,25 @@ class GameController extends AbstractController
         }
 
         return $this->render('home/game-details.html.twig', ['game' => $game,'form' => $form->createView(), 'rol' => $rol]);
+    }
+
+    #[Route('/home/game/delete/{id}', name: 'gameDelete')]
+    public function gameDelete(Game $game) {
+
+            $this->em->remove($game);
+            $this->em->flush();
+
+        return $this->redirectToRoute('home');
+    }
+
+    #[Route('/home/game/imagedelete/{game}/{imageName}', name: 'imageDelete')]
+    public function imageDelete(Game $game,String $imageName) {
+        $list = $game->getImageList();
+        unset($list[array_search($imageName, $list)]);
+        unlink("../public/uploads/files/". $imageName);
+        $game->setImageList($list);
+        $this->em->flush();
+
+        return $this->redirectToRoute('gameDetails',['id'=> $game->getId()]);
     }
 }

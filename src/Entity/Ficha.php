@@ -21,9 +21,6 @@ class Ficha
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $age = null;
 
-    #[ORM\Column(length: 1000, nullable: true)]
-    private ?string $description = null;
-
     #[ORM\ManyToOne(inversedBy: 'fichas')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
@@ -36,7 +33,7 @@ class Ficha
     private Collection $atributos;
 
     #[ORM\Column(length: 255)]
-    private ?string $Sexo = null;
+    private ?string $sexo = null;
 
     public function __construct()
     {
@@ -68,18 +65,6 @@ class Ficha
     public function setAge(?string $age): self
     {
         $this->age = $age;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
 
         return $this;
     }
@@ -140,12 +125,12 @@ class Ficha
 
     public function getSexo(): ?string
     {
-        return $this->Sexo;
+        return $this->sexo;
     }
 
-    public function setSexo(string $Sexo): self
+    public function setSexo(string $sexo): self
     {
-        $this->Sexo = $Sexo;
+        $this->sexo = $sexo;
 
         return $this;
     }

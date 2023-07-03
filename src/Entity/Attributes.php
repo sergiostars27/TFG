@@ -23,7 +23,7 @@ class Attributes
     #[ORM\JoinColumn(nullable: false)]
     private ?Ficha $ficha = null;
 
-    public function __construct(String $name, String $attribute){
+    public function __construct($name, $attribute){
         $this->name = $name;
         $this->attribute = $attribute;
 
