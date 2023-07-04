@@ -76,7 +76,11 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
       <div class="container my-4 p-3">
         <div class="p-2 mb-2 bg-white text-dark" style="height: 48vh; overflow-y: scroll; overflow-x: auto; overflow-wrap: break-word; hyphens: auto;">
             {% for message in messages %}
-                <p>{{message.content}}<br></p>
+              {% if message.user == user %}
+                <div class="d-flex flex-row bd-highlight">{{message.content}}</div>
+              {% else %}
+                <div class="d-flex flex-row-reverse bd-highlight">{{message.content}}</div>
+              {% endif %}
             {% endfor %}
                 <p id="recived"></p>
         </div>
@@ -111,7 +115,7 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
           if (p != ''){
             p = p.concat("<hr>")
           } else {
-            p = p.concat('<button id="clear" onclick="clearme()" style="float:right;">Clear</button>');
+            p = p.concat('<button id="clear" onclick="clearme()" style="float:right;">Limpiar</button>');
           }
           for(const element of valores){
             p = p.concat("<span> " + dieFace.replace('REPLACEME', element.toString()) + " </span>");
