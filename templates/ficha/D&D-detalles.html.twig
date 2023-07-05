@@ -1,4 +1,4 @@
-{% extends 'base-creacion.html.twig' %}
+{% extends 'base-detalles.html.twig' %}
 
 {% block title %}Hello FichaController!{% endblock %}
 
@@ -566,7 +566,6 @@ function CheckFuerza(){
     else{
         document.getElementById("investigacion").value=parseInt(estadistica);
     }
-
   }
 
     function RevisarChecks(){
@@ -638,16 +637,16 @@ function CheckFuerza(){
                 <div class="col-md-4 col-xs-12 pb-3">
                     <label for="raza">Raza</label>
                     <input  type="hidden" name="_test[]" value="Raza">
-                    <select id="raza" name="_atributos[]" class="form-control">
-                        <option>Enano</option>
-                        <option>Elfo</option>
-                        <option>Mediano</option>
-                        <option>Humano</option>
-                        <option>Draconido</option>
-                        <option>Gnomo</option>
-                        <option>Semi-elfo</option>
-                        <option>Semi-Orco</option>
-                        <option>Tiefling</option>
+                    <select id="raza" name="_atributos[]" value="Elfo" class="form-control">
+                        <option value="Enano">Enano</option>
+                        <option value="Elfo">Elfo</option>
+                        <option value="Mediano">Mediano</option>
+                        <option value="Humano">Humano</option>
+                        <option value="Draconido">Draconido</option>
+                        <option value="Gnomo">Gnomo</option>
+                        <option value="Semi-elfo">Semi-elfo</option>
+                        <option value="Semi-Orco">Semi-Orco</option>
+                        <option value="Tiefling">Tiefling</option>
                     </select>
                 </div>
 
@@ -709,13 +708,13 @@ function CheckFuerza(){
                 <div class="col-md-2 col-xs-12 pb-3">
                     <label for="altura">Altura</label>
                     <input type="hidden" name="_test[]" value="Altura">
-                    <input type="number" id="altura" step="0.01" name="_atributos[]" class="form-control" value="0.00" autocomplete="off">
+                    <input type="number" id="altura" name="_atributos[]" class="form-control" value="{{atributos.Altura}}" autocomplete="off">
                 </div>
 
                 <div class="col-md-2 col-xs-12 pb-3">
                     <label for="peso">Peso</label>
                     <input type="hidden" name="_test[]" value="Peso">
-                    <input type="number" id="name" step="0.01" name="_atributos[]" class="form-control" value="0.00" autocomplete="off">
+                    <input type="number" id="name" name="_atributos[]" class="form-control" value="{{atributos.Peso}}" autocomplete="off">
                 </div>
             </div>
         </div>
@@ -728,49 +727,49 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-3">
                     <label for="fuerza">Fuerza</label>
                     <input type="hidden" name="_test[]" value="Fuerza">
-                    <input type="number" id="fuerza" oninput="ModificadorFuerza();CheckFuerza();CheckAtletismo()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="fuerza" oninput="ModificadorFuerza();CheckFuerza();CheckAtletismo()" name="_atributos[]" class="form-control" value="{{atributos.Fuerza}}" autocomplete="off">
                     <input type="hidden" name="_test[]" value="ModificadorFuerza">
-                    <input type="text" id="modificadorf" name="_atributos[]" class="form-control" value=-5 readonly>
+                    <input type="text" id="modificadorf" name="_atributos[]" class="form-control" value="{{atributos.ModificadorFuerza}}" readonly>
                 </div>
 
                 <div class="p-2 text-center border border-4 rounded border-dark mt-3">
                     <label for="destreza">Destreza</label>
                     <input type="hidden" name="_test[]" value="Destreza">
-                    <input type="number" id="destreza" oninput="ModificadorDestreza();CheckDestreza();CheckAcrobacias();CheckManos();CheckSigilo()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="destreza" oninput="ModificadorDestreza();CheckDestreza();CheckAcrobacias();CheckManos();CheckSigilo()" name="_atributos[]" class="form-control" value="{{atributos.Destreza}}" autocomplete="off">
                     <input type="hidden" name="_test[]" value="ModificadorDestreza">
-                    <input type="text" id="modificadord" name="_atributos[]" class="form-control" value=-5 readonly>
+                    <input type="text" id="modificadord" name="_atributos[]" class="form-control" value="{{atributos.ModificadorDestreza}}" readonly>
                 </div>
 
                 <div class="p-2 text-center border border-4 rounded border-dark mt-3">
                     <label for="constitucion">Constitución</label>
                     <input type="hidden" name="_test[]" value="Constitución">
-                    <input type="number" id="constitucion" oninput="ModificadorConstitucion();CheckConstitucion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="constitucion" oninput="ModificadorConstitucion();CheckConstitucion()" name="_atributos[]" class="form-control" value="{{atributos.Constitución}}" autocomplete="off">
                     <input type="hidden" name="_test[]" value="ModificadorConstitución">
-                    <input type="text" id="modificadorc" name="_atributos[]" class="form-control" value=-5 readonly>
+                    <input type="text" id="modificadorc" name="_atributos[]" class="form-control" value="{{atributos.ModificadorConstitución}}" readonly>
                 </div>
 
                 <div class="p-2 text-center border border-4 rounded border-dark mt-3">
                     <label for="inteligencia">Inteligencia</label>
                     <input type="hidden" name="_test[]" value="Inteligencia">
-                    <input type="number" id="inteligencia" oninput="ModificadorInteligencia();CheckInteligencia();CheckArcana();CheckHistoria();CheckInvestigacion();CheckNaturaleza();CheckReligion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="inteligencia" oninput="ModificadorInteligencia();CheckInteligencia();CheckArcana();CheckHistoria();CheckInvestigacion();CheckNaturaleza();CheckReligion()" name="_atributos[]" class="form-control" value="{{atributos.Inteligencia}}" autocomplete="off">
                     <input type="hidden" name="_test[]" value="ModificadorInteligencia">
-                    <input type="text" id="modificadori" name="_atributos[]" class="form-control" value=-5 readonly>
+                    <input type="text" id="modificadori" name="_atributos[]" class="form-control" value="{{atributos.ModificadorInteligencia}}" readonly>
                 </div>
 
                 <div class="p-2 text-center border border-4 rounded border-dark mt-3">
                     <label for="sabiduria">Sabiduria</label>
                     <input type="hidden" name="_test[]" value="Sabiduria">
-                    <input type="number" id="sabiduria" oninput="ModificadorSabiduria();CheckSabiduria();CheckAnimales();CheckIntenciones();CheckMedicina();CheckPercepcion();CheckSupervivencia()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="sabiduria" oninput="ModificadorSabiduria();CheckSabiduria();CheckAnimales();CheckIntenciones();CheckMedicina();CheckPercepcion();CheckSupervivencia()" name="_atributos[]" class="form-control" value="{{atributos.Sabiduria}}" autocomplete="off">
                     <input type="hidden" name="_test[]" value="ModificadorSabiduria">
-                    <input type="text" id="modificadors" name="_atributos[]" class="form-control" value=-5 readonly>
+                    <input type="text" id="modificadors" name="_atributos[]" class="form-control" value="{{atributos.ModificadorSabiduria}}" readonly>
                 </div>
 
                 <div class="p-2 text-center border border-4 rounded border-dark mt-3">
                     <label for="carisma">Carisma</label>
                     <input type="hidden" name="_test[]" value="Carisma">
-                    <input type="number" id="carisma" oninput="ModificadorCarisma();CheckCarisma();CheckEngañar();CheckIntimidacion();CheckInterpretacion();CheckPersuasion()" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="carisma" oninput="ModificadorCarisma();CheckCarisma();CheckEngañar();CheckIntimidacion();CheckInterpretacion();CheckPersuasion()" name="_atributos[]" class="form-control" value="{{atributos.Carisma}}" autocomplete="off">
                     <input type="hidden" name="_test[]" value="ModificadorCarisma">
-                    <input type="text" id="modificadorca" name="_atributos[]" class="form-control" value=-5 readonly>
+                    <input type="text" id="modificadorca" name="_atributos[]" class="form-control" value="{{atributos.ModificadorCarisma}}" readonly>
                 </div>
             </div>
 
@@ -778,11 +777,11 @@ function CheckFuerza(){
                 <div class="p-2 border border-4 rounded border-dark">
                     <label for="inspiracion">Inspiración</label>
                     <input type="hidden" name="_test[]" value="Inspiración">
-                    <input type="number" id="inspiracion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                    <input type="number" id="inspiracion" name="_atributos[]" class="form-control" value="{{atributos.Inspiración}}" autocomplete="off">
 
                     <label for="competencia" class="pt-3">Competencia</label>
                     <input type="hidden" name="_test[]" value="Competencia">
-                    <input type="number" id="competencia" oninput="CheckFuerza();CheckDestreza();CheckConstitucion();CheckCarisma();CheckArcana();CheckSabiduria();CheckPersuasion();CheckIntimidacion();CheckEngañar();CheckSupervivencia();CheckInterpretacion();CheckMedicina();CheckIntenciones();CheckAnimales();CheckReligion();CheckNaturaleza();CheckInvestigacion();CheckHistoria();CheckInteligencia();CheckSigilo();CheckManos();CheckAcrobacias();CheckAtletismo();CheckPercepcion();" name="_atributos[]" class="form-control" value=2 autocomplete="off">
+                    <input type="number" id="competencia" oninput="CheckFuerza();CheckDestreza();CheckConstitucion();CheckCarisma();CheckArcana();CheckSabiduria();CheckPersuasion();CheckIntimidacion();CheckEngañar();CheckSupervivencia();CheckInterpretacion();CheckMedicina();CheckIntenciones();CheckAnimales();CheckReligion();CheckNaturaleza();CheckInvestigacion();CheckHistoria();CheckInteligencia();CheckSigilo();CheckManos();CheckAcrobacias();CheckAtletismo();CheckPercepcion();" name="_atributos[]" class="form-control" value="{{atributos.Competencia}}" autocomplete="off">
                 </div>
 
                 <div class="p-2 border border-4 rounded border-dark mt-4">
@@ -795,7 +794,7 @@ function CheckFuerza(){
                             <input class="form-check-input" type="checkbox" id="checkf" oninput="CheckFuerza();">
                             <input class="form-control" type="text" id="valuef" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónFuerza">
-                            <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value="{{atributos.SalvaciónFuerza}}" autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="fuerzas">Fuerza</label> 
@@ -803,10 +802,10 @@ function CheckFuerza(){
 
                         <div class="form-check form-check-inline pt-2">
                             <input type="hidden" name="_test[]" value="CheckDestreza">
-                            <input type="checkbox" oninput="CheckDestreza()" id="checkd" class="form-check-input">
+                              <input type="checkbox" oninput="CheckDestreza()" id="checkd" class="form-check-input">
                             <input class="form-control" type="text" id="valued" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónDestreza">
-                            <input type="number" id="destrezas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="destrezas" name="_atributos[]" class="form-control" value="{{atributos.SalvaciónDestreza}}" autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="destrezas">Destreza</label>
@@ -817,7 +816,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckConstitucion()" id="checkc" class="form-check-input">
                             <input class="form-control" type="text" id="valuec" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónConstitución">
-                            <input type="number" id="constitucions" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="constitucions" name="_atributos[]" class="form-control" value="{{atributos.SalvaciónConstitución}}" autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="constitucions">Constitución</label>
@@ -828,7 +827,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckInteligencia()" id="checki" class="form-check-input">
                             <input class="form-control" type="text" id="valuei" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónInteligencia">
-                            <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value="{{atributos.SalvaciónInteligencia}}" autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="inteligencias">Inteligencia</label>
@@ -839,7 +838,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckSabiduria()" id="checks" class="form-check-input">
                             <input class="form-control" type="text" id="values" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónSabiduria">
-                            <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value="{{atributos.SalvaciónSabiduria}}" autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="sabidurias">Sabiduria</label>
@@ -850,7 +849,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckCarisma()" id="checkca" class="form-check-input">
                             <input class="form-control" type="text" id="valueca" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónCarisma">
-                            <input type="number" id="carismas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="carismas" name="_atributos[]" class="form-control" value="{{atributos.SalvaciónCarisma}}" autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="carismas">Carisma</label>
@@ -861,11 +860,11 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-4">
                     <label for="competencais">Otras Competencias</label>
                     <input type="hidden" name="_test[]" value="OtrasCompetencias">
-                    <textarea type="text" id="competencias" name="_atributos[]" class="form-control" autocomplete="off" rows="4"></textarea>
+                    <textarea type="text" id="competencias" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.OtrasCompetencias}}" rows="4"></textarea>
 
                     <label for="idiomas" class="mt-3">Idiomas</label>
                     <input type="hidden" name="_test[]" value="Idiomas">
-                    <textarea type="text" id="idiomas" name="_atributos[]" class="form-control" autocomplete="off" rows="3"></textarea>
+                    <textarea type="text" id="idiomas" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Idiomas}}" rows="3"></textarea>
                 </div>
             </div>
 
@@ -881,7 +880,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckAcrobacias()" id="checkacrobacias" class="form-check-input">
                         <input class="form-control" type="text" id="valueacrobacias" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Acrobacias">
-                        <input type="number" id="acrobacias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="acrobacias" name="_atributos[]" class="form-control" value="{{atributos.Acrobacias}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="acrobacias">Acrobacias</label>
@@ -892,7 +891,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckAnimales()" id="checkanimales" class="form-check-input">
                         <input class="form-control" type="text" id="valueanimales" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="ManejoAnimales">
-                        <input type="number" id="manejoanimales" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="manejoanimales" name="_atributos[]" class="form-control" value="{{atributos.ManejoAnimales}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="manejoanimales">Manejo de animales</label>
@@ -903,7 +902,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckArcana()" id="checkarcana" class="form-check-input">
                         <input class="form-control" type="text" id="valuearcana" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Arcana">
-                        <input type="number" id="arcana" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="arcana" name="_atributos[]" class="form-control" value="{{atributos.Arcana}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="arcana">Arcana</label>
@@ -914,7 +913,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckAtletismo()" id="checkatletismo" class="form-check-input">
                         <input class="form-control" type="text" id="valueatletismo" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Atletismo">
-                        <input type="number" id="atletismo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="atletismo" name="_atributos[]" class="form-control" value="{{atributos.Atletismo}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="atletismo">Atletismo</label>
@@ -925,7 +924,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckEngañar()" id="checkengañar" class="form-check-input">
                         <input class="form-control" type="text" id="valueengañar" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Engañar">
-                        <input type="number" id="engañar" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="engañar" name="_atributos[]" class="form-control" value="{{atributos.Engañar}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="engañar">Engañar</label>
@@ -936,7 +935,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckHistoria()" id="checkhistoria" class="form-check-input">
                         <input class="form-control" type="text" id="valuehistoria" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Historia">
-                        <input type="number" id="historia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="historia" name="_atributos[]" class="form-control" value="{{atributos.Historia}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="historia">Historia</label>
@@ -947,7 +946,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckIntenciones()" id="checkintenciones" class="form-check-input">
                         <input class="form-control" type="text" id="valueintenciones" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="AveriguarIntenciones">
-                        <input type="number" id="averiguarintenciones" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="averiguarintenciones" name="_atributos[]" class="form-control" value="{{atributos.AveriguarIntenciones}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="averiguarintenciones">Averiguar intenciones</label>
@@ -958,7 +957,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckIntimidacion()" id="checkintimidacion" class="form-check-input">
                         <input class="form-control" type="text" id="valueintimidacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Intimidación">
-                        <input type="number" id="intimidacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="intimidacion" name="_atributos[]" class="form-control" value="{{atributos.Intimidación}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="intimidacion">Intimidación</label>
@@ -969,7 +968,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckInvestigacion()" id="checkinvestigacion" class="form-check-input">
                         <input class="form-control" type="text" id="valueinvestigacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Investigación">
-                        <input type="number" id="investigacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="investigacion" name="_atributos[]" class="form-control" value="{{atributos.Investigación}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="investigacion">Investigación</label>
@@ -980,7 +979,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckMedicina()" id="checkmedicina" class="form-check-input">
                         <input class="form-control" type="text" id="valuemedicina" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Medicina">
-                        <input type="number" id="medicina" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="medicina" name="_atributos[]" class="form-control" value="{{atributos.Medicina}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="medicina">Medicina</label>
@@ -991,7 +990,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckNaturaleza()" id="checknaturaleza" class="form-check-input">
                         <input class="form-control" type="text" id="valuenaturaleza" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Naturaleza">
-                        <input type="number" id="naturaleza" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="naturaleza" name="_atributos[]" class="form-control" value="{{atributos.Naturaleza}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="naturaleza">Naturaleza</label>
@@ -1002,7 +1001,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckPercepcion()" id="checkpercepcion" class="form-check-input">
                         <input class="form-control" type="text" id="valuepercepcion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Percepción">
-                        <input type="number" id="percepcion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="percepcion" name="_atributos[]" class="form-control" value="{{atributos.Percepción}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="percepcion">Percepción</label>
@@ -1013,7 +1012,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckPersuasion()" id="checkpersuasion" class="form-check-input">
                         <input class="form-control" type="text" id="valuepersuasion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Persuasión">
-                        <input type="number" id="persuasion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="persuasion" name="_atributos[]" class="form-control" value="{{atributos.Persuasión}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="persuasion">Persuasión</label>
@@ -1021,10 +1020,10 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckReligión">
-                        <input type="checkbox" oninput="CheckReligion()" id="checkreligion" class="form-check-input">
-                        <input class="form-control" type="text" id="valuereligion" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckInterpretacion()" id="checkinterpretacion" class="form-check-input">
+                        <input class="form-control" type="text" id="valueinterpretacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Religión">
-                        <input type="number" id="religion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="religion" name="_atributos[]" class="form-control" value="{{atributos.Religión}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="religion">Religión</label>
@@ -1035,7 +1034,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckInterpretacion()" id="checkinterpretacion" class="form-check-input">
                         <input class="form-control" type="text" id="valueinterpretacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Interpretación">
-                        <input type="number" id="interpretacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="interpretacion" name="_atributos[]" class="form-control" value="{{atributos.Interpretación}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="interpretacion">Interpretación</label>
@@ -1043,10 +1042,10 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckManos">
-                        <input type="checkbox" oninput="CheckManos();RevisarChecks();" id="checkmanos" class="form-check-input">
-                        <input class="form-control" type="text" id="valuemanos" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" class="form-check-input">
+                        <input class="form-control" type="text" id="valuesigilo" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="JuegoManos">
-                        <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value="{{atributos.JuegoManos}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="juegomanos">Juego de manos</label>
@@ -1054,10 +1053,10 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckSigilo">
-                        <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" class="form-check-input">
-                        <input class="form-control" type="text" id="valuesigilo" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" class="form-check-input">
+                        <input class="form-control" type="text" id="valuesupervivencia" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Sigilo">
-                        <input type="number" id="sigilo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="sigilo" name="_atributos[]" class="form-control" value="{{atributos.Sigilo}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="sigilo">Sigilo</label>
@@ -1065,10 +1064,9 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckSupervivencia">
-                        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" class="form-check-input">
-                        <input class="form-control" type="text" id="valuesupervivencia" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" name="_atributos[]" class="form-check-input">
                         <input type="hidden" name="_test[]" value="Supervivencia">
-                        <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value="{{atributos.Supervivencia}}" autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="supervivencia">Supervivencia</label>
@@ -1082,19 +1080,19 @@ function CheckFuerza(){
                         <div class="col-md-4 col-xs-12">
                         <label for="armorclass">Clase de armadura</label>
                         <input type="hidden" name="_test[]" value="ArmorClass">
-                        <input type="number" id="armorclass" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="armorclass" name="_atributos[]" class="form-control" value="{{atributos.ArmorClass}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-4 col-xs-12">
                         <label for="iniciativa">Iniciativa</label>
                         <input type="hidden" name="_test[]" value="Iniciativa">
-                        <input type="number" id="iniciativa" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="iniciativa" name="_atributos[]" class="form-control" value="{{atributos.Iniciativa}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-4 col-xs-12">
                         <label for="velocidad">Velocidad</label>
                         <input type="hidden" name="_test[]" value="Velocidad">
-                        <input type="text" id="velocidad" name="_atributos[]" class="form-control" autocomplete="off">
+                        <input type="text" id="velocidad" name="_atributos[]" class="form-control" value="{{atributos.Velocidad}}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -1104,19 +1102,19 @@ function CheckFuerza(){
                         <div class="col-md-6 col-xs-12">
                             <label for="vidamaxima">Vida máxima</label>
                             <input type="hidden" name="_test[]" value="VidaMáxima">
-                            <input type="number" id="vidamaxima" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="vidamaxima" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.VidaMáxima}}">
                         </div>
 
                         <div class="col-md-6 col-xs-12">
                             <label for="vidaactual">Vida actual</label>
                             <input type="hidden" name="_test[]" value="VidaActual">
-                            <input type="number" id="vidaactual" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="vidaactual" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.VidaActual}}">
                         </div>
 
                         <div class="col-12 pt-3">
                             <label for="vidatemporal">Vida temporal</label>
                             <input type="hidden" name="_test[]" value="VidaTemporal">
-                            <input type="number" id="vidatemporal" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="vidatemporal" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.VidaTemporal}}">
                         </div>
                     </div>
                 </div>
@@ -1125,7 +1123,7 @@ function CheckFuerza(){
                     <div class="col-md-5 col-xs-12 p-2 border border-4 rounded border-dark mt-4">
                         <label for="dadosgolpe" class="pb-3">Dados de golpe</label>
                         <input type="hidden" name="_test[]" value="DadosGolpe">
-                        <input type="text" id="dadosgolpe" name="_atributos[]" class="form-control" autocomplete="off">
+                        <input type="text" id="dadosgolpe" name="_atributos[]" value="{{atributos.DadosGolpe}}" class="form-control autocomplete="off"">
                     </div>
 
                     <div class="col-md-5 col-xs-12 ml-auto p-2 border border-4 rounded border-dark mt-4">
@@ -1140,20 +1138,17 @@ function CheckFuerza(){
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Exito1">
-                                <input type="checkbox" id="exito1" class="form-check-input">
-                                <input class="form-control" type="text" id="valuee1" name="_atributos[]" value=false hidden>
+                                <input type="checkbox" id="exito1" name="_atributos[]" class="form-check-input">
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Exito2">
-                                <input type="checkbox" id="exito2" class="form-check-input">
-                                <input class="form-control" type="text" id="valuee2" name="_atributos[]" value=false hidden>
+                                <input type="checkbox" id="exito2" name="_atributos[]" class="form-check-input">
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Exito3">
-                                <input type="checkbox" id="exito3" class="form-check-input">
-                                <input class="form-control" type="text" id="valuee3" name="_atributos[]" value=false hidden>
+                                <input type="checkbox" id="exito3" name="_atributos[]" class="form-check-input">
                             </div>
                         </div>
 
@@ -1164,20 +1159,17 @@ function CheckFuerza(){
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Fallo1">
-                                <input type="checkbox" id="fallo1" class="form-check-input">
-                                <input class="form-control" type="text" id="valuef1" name="_atributos[]" value=false hidden>
+                                <input type="checkbox" id="fallo1" name="_atributos[]" class="form-check-input">
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Fallo2">
-                                <input type="checkbox" id="fallo2" class="form-check-input">
-                                <input class="form-control" type="text" id="valuef2" name="_atributos[]" value=false hidden>
+                                <input type="checkbox" id="fallo2" name="_atributos[]" class="form-check-input">
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Fallo3">
-                                <input type="checkbox" id="fallo3" class="form-check-input">
-                                <input class="form-control" type="text" id="valuef3" name="_atributos[]" value=false hidden>
+                                <input type="checkbox" id="fallo3" name="_atributos[]" class="form-check-input">
                             </div>
                         </div>
                     </div>
@@ -1188,56 +1180,56 @@ function CheckFuerza(){
                         <div class="col-md-5 col-xs-12">
                             <label for="arma">Armas</label>
                             <input type="hidden" name="_test[]" value="Arma1">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.Arma1}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-2 col-xs-12">
                             <label for="arma">+Ataque</label>
                             <input type="hidden" name="_test[]" value="ModificadorAtaque1">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.ModificadorAtaque1}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-5 col-xs-12">
                             <label for="arma">Daño</label>
                             <input type="hidden" name="_test[]" value="Daño1">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.Daño1}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-5 col-xs-12 pt-2">
                             <input type="hidden" name="_test[]" value="Arma2">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.Arma2}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-2 col-xs-12 pt-2">
                             <input type="hidden" name="_test[]" value="Arma3">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.Arma3}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-5 col-xs-12 pt-2">
                             <input type="hidden" name="_test[]" value="ModificadorAtaque2">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.ModificadorAtaque2}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-5 col-xs-12 pt-2">
                             <input type="hidden" name="_test[]" value="ModificadorAtaque3">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.ModificadorAtaque3}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-2 col-xs-12 pt-2">
                             <input type="hidden" name="_test[]" value="Daño2">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.Daño2}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-5 col-xs-12 pt-2">
                             <input type="hidden" name="_test[]" value="Daño3">
-                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" value="{{atributos.Daño3}}" autocomplete="off">
                         </div>
                     </div>
 
                     <div class="pt-3">
                         <label for="accionesespeciales">Acciones especiales</label>
                         <input type="hidden" name="_test[]" value="AccionesEspeciales">
-                        <textarea type="text" id="accionesespeciales" name="_atributos[]" class="form-control" autocomplete="off" rows="6"></textarea>
+                        <textarea type="text" id="accionesespeciales" name="_atributos[]" class="form-control" value="{{atributos.AccionesEspeciales}}" autocomplete="off" rows="6"></textarea>
                     </div>
                 </div>
             </div>
@@ -1245,19 +1237,19 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-4 mb-2">
                     <label for="ideales">Ideales</label>
                     <input type="hidden" name="_test[]" value="Ideales">
-                    <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="2"></textarea>
+                    <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Ideales}}" rows="2"></textarea>
 
                     <label for="rasgos_personalidad" class="pt-4">Rasgos de personalidad</label>
                     <input type="hidden" name="_test[]" value="RasgosPersonalidad">
-                    <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" rows="2"></textarea>
+                    <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.RasgosPersonalidad}}" rows="2"></textarea>
 
                     <label for="vinculos" class="pt-4">Vinculos</label>
                     <input type="hidden" name="_test[]" value="Vinculos">
-                    <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" rows="2"></textarea>
+                    <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Vinculos}}" rows="2"></textarea>
 
                     <label for="defectos" class="pt-4">Defectos</label>
                     <input type="hidden" name="_test[]" value="Defectos">
-                    <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" rows="2"></textarea>
+                    <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Defectos}}" rows="2"></textarea>
                 </div>
             </div>
             <div class="col-md-4 col-xs-12">
@@ -1267,29 +1259,29 @@ function CheckFuerza(){
                         <div class="col-md-2 col-xs-12">
                             <label for="pc">PC</label>
                             <input type="hidden" name="_test[]" value="PC">
-                            <input type="number" id="pc" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="pc" name="_atributos[]" class="form-control" value="{{atributos.PC}}" autocomplete="off">
 
                             <label for="pp" class="pt-3">PP</label>
                             <input type="hidden" name="_test[]" value="PP">
-                            <input type="number" id="pp" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="pp" name="_atributos[]" class="form-control" value="{{atributos.PP}}" autocomplete="off">
 
                             <label for="pe" class="pt-3">PE</label>
                             <input type="hidden" name="_test[]" value="PE">
-                            <input type="number" id="pe" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="pe" name="_atributos[]" class="form-control" value="{{atributos.PE}}" autocomplete="off">
 
                             <label for="po" class="pt-3">PO</label>
                             <input type="hidden" name="_test[]" value="PO">
-                            <input type="number" id="po" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="po" name="_atributos[]" class="form-control" value="{{atributos.PO}}" autocomplete="off">
 
                             <label for="ppt" class="pt-3">PPT</label>
                             <input type="hidden" name="_test[]" value="PPT">
-                            <input type="number" id="ptt" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="ptt" name="_atributos[]" class="form-control" value="{{atributos.PPT}}" autocomplete="off">
                         </div>
 
                         <div class="col-md-10 col-xs-12 pt-2">
                             <label for="invetario">Inventario</label>
                             <input type="hidden" name="_test[]" value="Inventario">
-                            <textarea type="text" id="inventario" name="_atributos[]" class="form-control" autocomplete="off" rows="16"></textarea>
+                            <textarea type="text" id="inventario" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Inventario}}" rows="16"></textarea>
                         </div>
                     </div>
                 </div>
@@ -1299,7 +1291,7 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-4">
                     <label for="rasgosatributos" class="pt-2">Rasgos y atributos</label>
                     <input type="hidden" name="_test[]" value="RasgosAtributos">
-                    <textarea type="text" id="rasgosatributos" name="_atributos[]" class="form-control" autocomplete="off" rows="16"></textarea>
+                    <textarea type="text" id="rasgosatributos" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.RasgosAtributos}}" rows="16"></textarea>
                 </div>
             </div>
         </div>
@@ -1309,8 +1301,29 @@ function CheckFuerza(){
     </div>
 
         <div class="container my-3" style="max-width: 92%;">
-        <button class="btn btn-success btn-block my-2" type="submit" onclick=RevisarChecks();>Crear</button>
+            <button type="button" class="btn btn-danger btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            Borrar Ficha
+            </button>
+            <button class="btn btn-success btn-block my-2" type="submit" onclick=RevisarChecks();>Confirmar Modificaciones</button>
         </div>
         </form>
+
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">¿Esta seguro de que desea borrar la ficha?</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-danger" href="{{ path('fichaDelete', {game:game.id, ficha:ficha.id}) }}" role="button">Aceptar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 {% endblock %}

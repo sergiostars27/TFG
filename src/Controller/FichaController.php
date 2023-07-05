@@ -54,12 +54,45 @@ class FichaController extends AbstractController
 
             }
             $this->em->persist($ficha);
-            $this->em->flush();        
+            $this->em->flush(); 
+            return $this->redirectToRoute('ficha',array('id' => $game->getId()));      
         }
         return $this->render('ficha/' . $game->getGameSystem() . '-creacion.html.twig', [
             'controller_name' => 'FichaController',
             'game' => $game,
             'rol' => $rol,
+            'user' => $this->getUser(),
         ]);
+    }
+
+    #[Route('/home/game/{game}/ficha/{ficha}', name: 'fichaDetalles')]
+    public function details(Game $game, Ficha $ficha): Response
+    {
+        $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {      
+        }
+        $listaAtributos = [];
+        for($i = 0; $i<count($ficha->getAtributos());$i++){
+            $listaAtributos[$ficha->getAtributos()[$i]->getName()] = $ficha->getAtributos()[$i]->getAttribute();
+        }
+
+        return $this->render('ficha/' . $game->getGameSystem() . '-detalles.html.twig', [
+            'controller_name' => 'FichaController',
+            'game' => $game,
+            'rol' => $rol,
+            'ficha' => $ficha,
+            'user' => $this->getUser(),
+            'atributos' => $listaAtributos,
+        ]);
+    }
+
+
+    #[Route('/home/game/{game}/ficha/delete/{ficha}', name: 'fichaDelete')]
+    public function fichaDelete(Game $game, Ficha $ficha) {
+
+        $this->em->remove($ficha);
+        $this->em->flush();
+
+        return $this->redirectToRoute('ficha',array('id' => $game->getId())); 
     }
 }

@@ -32,6 +32,7 @@ class ChatController extends AbstractController
             'messages' => $messages,
             'game' => $game,
             'rol' => $rol,
+            'user' => $this->getUser(),
         ]);
     }
 

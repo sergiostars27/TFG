@@ -77,9 +77,14 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
         <div class="p-2 mb-2 bg-white text-dark" style="height: 48vh; overflow-y: scroll; overflow-x: auto; overflow-wrap: break-word; hyphens: auto;">
             {% for message in messages %}
               {% if message.user == user %}
-                <div class="d-flex flex-row bd-highlight">{{message.content}}</div>
+                <div class="d-flex flex-row bd-highlight">
+                {{message.user.username}}:<br>
+                {{message.content}}
+                </div>
               {% else %}
-                <div class="d-flex flex-row-reverse bd-highlight">{{message.content}}</div>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                {{message.user.username}}:<br>
+                {{message.content}}</div>
               {% endif %}
             {% endfor %}
                 <p id="recived"></p>

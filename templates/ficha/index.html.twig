@@ -10,7 +10,7 @@
             {% for ficha in fichas %}
                 <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 py-3">
                     <div class="card border-dark" style="width: 18rem; hight: 18rem;">
-                        <a href="">
+                        <a href="{{ path('fichaDetalles', {game:game.id, ficha:ficha.id}) }}">
                         {% if game.GameSystem == "D&D" %}
                             <img src="/img/DnD.png" class="card-img-top"> 
                         {% elseif game.GameSystem == "Llamada de Cthulhu" %}
