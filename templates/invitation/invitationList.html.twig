@@ -4,10 +4,10 @@
 
 {% block body %}
     {{ parent() }}
-    <div class="container my-4 p-3 text-center">
+    <div class="container my-4 p-3">
     
     {% for invitation in invitations %}
-        <div class="container my-4 p-3 ">
+        <div class="container my-4 p-3 text-center border border-4 rounded border-dark" id="bg-5">
             <a class="link-dark" style="font-size: 250%; color: #000000;" href="{{ path('invitationDetails', {id:invitation.id}) }}" > Invitación</a>
             <h1 style="font-size: 150%;">De: {{invitation.sender.username}}   &nbsp;   Partida: {{invitation.game.name}} </h1>
         </div>

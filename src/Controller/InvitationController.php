@@ -75,7 +75,7 @@ class InvitationController extends AbstractController
         return $this->render('invitation/invitationList.html.twig', ['invitations' => $invitations]);
     }
 
-    #[Route('/invitation/{id}', name: 'invitationDetails')]
+    #[Route('home/invitation/{id}', name: 'invitationDetails')]
     public function invitationDetails(Invitation $invitation) {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -89,5 +89,14 @@ class InvitationController extends AbstractController
         }
 
         return $this->render('invitation/invitation-details.html.twig', ['invitation' => $invitation]);
+    }
+
+    #[Route('/home/invitation/delete/{id}', name: 'invitationDelete')]
+    public function gameDelete(Invitation $invitation) {
+
+            $this->em->remove($invitation);
+            $this->em->flush();
+
+        return $this->redirectToRoute('invitation_list');
     }
 }

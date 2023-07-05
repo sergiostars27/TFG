@@ -4,12 +4,15 @@
 
 {% block body %}
     {{ parent() }}
-    <div class="container p-3 my-4" style="background-image: url('');">
-        <h1>Has sido invitado por {{invitation.sender.username}} a la partida {{invitation.game.name}}.</h1>
+    <div class="container bg-white p-2 text-center border border-4 rounded border-dark mt-4" id="bg-4">
+        <div class="container pt-5 text-center">
+            <h2>Has recivido una invitación de {{invitation.sender.username}} para unirte a la partida {{invitation.game.name}}.</h2>
 
-        <form method="post">
-            <button class="btn btn-primary" type="submit">Enviar Invitación</button>
-        </form>
+            <form method="post" class="py-3">
+                <button class="btn btn-primary" type="submit">Aceptar invitación</button>
+                <a class="btn btn-danger" href="{{ path('invitationDelete', {id:invitation.id}) }}" role="button">Borrar invitación</a>
+            </form>
+        </div>
     </div>
 {% endblock %}
 
