@@ -6,6 +6,7 @@ use App\Entity\Ficha;
 use App\Entity\Game;
 use App\Entity\UserGame;
 use App\Entity\Attributes;
+use App\Entity\History;
 use Attribute;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,6 +55,7 @@ class FichaController extends AbstractController
                 $this->em->persist($atributo);
 
             }
+            $historial = new History($this->getUser()->getUsername() . " ha creado una ficha para el personaje " . $ficha->getCharacterName() . ".",$game,$this->getUser());
             $this->em->persist($ficha);
             $this->em->flush(); 
             return $this->redirectToRoute('ficha',array('id' => $game->getId()));      

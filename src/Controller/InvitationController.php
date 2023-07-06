@@ -85,7 +85,10 @@ class InvitationController extends AbstractController
             $userGame->setRol(0);
             $historial = new History($this->getUser()->getUsername() . " se ha unido a la partida.",$invitation->getGame(),$this->getUser());
             $this->em->persist($userGame);
+            $this->em->persist($historial);
+            $this->em->remove($invitation);
             $this->em->flush();
+            return $this->redirectToRoute('invitation_list');
         }
 
         return $this->render('invitation/invitation-details.html.twig', ['invitation' => $invitation]);

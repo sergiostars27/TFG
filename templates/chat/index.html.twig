@@ -38,7 +38,7 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 
   function mandarMensaje(){
     const params = {
-      _content: document.getElementById('content').value
+      _content: document.getElementById('message').value
     };
 
     const options = {
@@ -47,6 +47,7 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
     };
 
     fetch("{{ path('push', {id:game.id}) }}", options);
+    document.getElementById("message").value="";
   }
 
 
@@ -54,51 +55,52 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 {% endblock %}
 {% block body %}
 <div>
-{{ parent() }}
+  {{ parent() }}
 
 
-<div class="container">
-  <div class="row">
-  
-    <div class="col-6">
-      <div class='outer cover-container my-4 p-3' style=" height: 60vh; overflow:scroll;">
-        <form onsubmit="mandarRoll();return false;" id="control" class='general'>
-          Nº Dados: <input type="number" step="1" id="num" value='3' max="99" min="1" size="4" required> Caras: <input type="number" step="1" id="dice" value='6' max="999" min="1" size="4">
-         <input type="submit" id="roll">
-        </form>
+  <div class="container">
+    <div class="row">
+    
+      <div class="col-6">
+        <div class='outer cover-container my-4 p-3' style=" height: 60vh; overflow:scroll;">
+          <form onsubmit="mandarRoll();return false;" id="control" class='general'>
+            Nº Dados: <input type="number" step="1" id="num" value='3' max="99" min="1" size="4" required> Caras: <input type="number" step="1" id="dice" value='6' max="999" min="1" size="4">
+          <input type="submit" id="roll">
+          </form>
 
-        <div id="recivedDice" class='general'></div>
+          <div id="recivedDice" class='general'></div>
+        </div>
       </div>
-    </div>
 
 
-    <div class="col-6">
-      <div class="container my-4 p-3">
-        <div class="p-2 mb-2 bg-white text-dark" style="height: 48vh; overflow-y: scroll; overflow-x: auto; overflow-wrap: break-word; hyphens: auto;">
+      <div class="col-6">
+        <div class="container my-4 p-3">
+          <div class="p-2 mb-2 bg-white text-dark" style="height: 48vh; overflow-y: scroll; overflow-x: auto; overflow-wrap: break-word; hyphens: auto;">
             {% for message in messages %}
-              {% if message.user == user %}
-                <div class="d-flex flex-row bd-highlight">
-                {{message.user.username}}:<br>
-                {{message.content}}
+              {% if message.user != user %}
+                <div class="d-flex flex-row bd-highlight mb-2" >
+                  {{message.user.username}}:<br>
+                  {{message.content}}
                 </div>
               {% else %}
-                <div class="d-flex flex-row-reverse bd-highlight">
-                {{message.user.username}}:<br>
-                {{message.content}}</div>
+                <div class="d-flex flex-row-reverse bd-highlight mb-2">
+                  {{message.user.username}}:<br>
+                  {{message.content}}
+                </div>
               {% endif %}
             {% endfor %}
-                <p id="recived"></p>
-        </div>
-            <form action="{{ path('push', {id:game.id}) }}" method="post"> 
-            <input type="text" id="content" name="_content" placeholder="Your message..." class="form-control" autocomplete="off">
+          <div id="recived" class="mb-2">
+          
+          </div>
+          </div>
+          <form action="{{ path('push', {id:game.id}) }}" method="post"> 
+            <input type="text" id="message" name="_content" placeholder="Tu mensaje..." class="form-control" autocomplete="off">
             <button class="btn btn-success btn-block my-2" type="button" onclick="mandarMensaje()">Send</button>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-
-
   </div>
-</div>
 </div>
 {% endblock %}
 
@@ -108,7 +110,15 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
         const eventSource1 = new EventSource("{{ mercure('https://example.com/books/' ~ game.id)|escape('js') }}");
         eventSource1.onmessage = event => { 
       // Will be called every time an update is published by the server
-          document.getElementById("recived").innerHTML+="<p>"+(JSON.parse(event.data)).status+"<br></p>";
+      console.log("AAAA");
+          var content;
+          if((JSON.parse(event.data)).user != "{{user.username}}"){
+            content = '<div class="d-flex flex-row bd-highlight">'+(JSON.parse(event.data)).user+":<br>"+(JSON.parse(event.data)).status+"<br></div>";
+          }
+          else{
+            content = '<div class="d-flex flex-row-reverse bd-highlight">'+(JSON.parse(event.data)).user+":<br>"+(JSON.parse(event.data)).status+"<br></div>";
+          }
+          document.getElementById("recived").innerHTML+=content;
         }
 
         const eventSource2 = new EventSource("{{ mercure('https://example.com/dice/' ~ game.id)|escape('js') }}");
