@@ -36,9 +36,9 @@ function CheckFuerza(){
   }
 
   function CheckCarisma(){
-    var estadistica = document.getElementById("modificadorc").value;
+    var estadistica = document.getElementById("modificadorca").value;
     var competencia = document.getElementById("competencia").value;
-    var check = document.getElementById("checkc");
+    var check = document.getElementById("checkca");
     if(check.checked){
         
         
@@ -595,7 +595,7 @@ function CheckFuerza(){
         var eleminterpretacion = document.getElementById("valueinterpretacion");
         var elempersuasion = document.getElementById("valuepersuasion");
         var eleme1 = document.getElementById("valuee1");
-        var eleme1 = document.getElementById("valuee2");
+        var eleme2 = document.getElementById("valuee2");
         var eleme3 = document.getElementById("valuee3");
         var elemf1 = document.getElementById("valuef1");
         var elemf2 = document.getElementById("valuef2");
@@ -795,7 +795,7 @@ function CheckFuerza(){
                             <input class="form-check-input" type="checkbox" id="checkf" oninput="CheckFuerza();">
                             <input class="form-control" type="text" id="valuef" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónFuerza">
-                            <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="fuerzas" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="fuerzas">Fuerza</label> 
@@ -806,7 +806,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckDestreza()" id="checkd" class="form-check-input">
                             <input class="form-control" type="text" id="valued" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónDestreza">
-                            <input type="number" id="destrezas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="destrezas" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="destrezas">Destreza</label>
@@ -817,7 +817,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckConstitucion()" id="checkc" class="form-check-input">
                             <input class="form-control" type="text" id="valuec" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónConstitución">
-                            <input type="number" id="constitucions" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="constitucions" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="constitucions">Constitución</label>
@@ -828,7 +828,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckInteligencia()" id="checki" class="form-check-input">
                             <input class="form-control" type="text" id="valuei" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónInteligencia">
-                            <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="inteligencias" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="inteligencias">Inteligencia</label>
@@ -839,7 +839,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckSabiduria()" id="checks" class="form-check-input">
                             <input class="form-control" type="text" id="values" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónSabiduria">
-                            <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="sabidurias" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="sabidurias">Sabiduria</label>
@@ -850,7 +850,7 @@ function CheckFuerza(){
                             <input type="checkbox" oninput="CheckCarisma()" id="checkca" class="form-check-input">
                             <input class="form-control" type="text" id="valueca" name="_atributos[]" value=false hidden>
                             <input type="hidden" name="_test[]" value="SalvaciónCarisma">
-                            <input type="number" id="carismas" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                            <input type="number" id="carismas" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="carismas">Carisma</label>
@@ -881,7 +881,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckAcrobacias()" id="checkacrobacias" class="form-check-input">
                         <input class="form-control" type="text" id="valueacrobacias" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Acrobacias">
-                        <input type="number" id="acrobacias" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="acrobacias" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="acrobacias">Acrobacias</label>
@@ -892,7 +892,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckAnimales()" id="checkanimales" class="form-check-input">
                         <input class="form-control" type="text" id="valueanimales" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="ManejoAnimales">
-                        <input type="number" id="manejoanimales" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="manejoanimales" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="manejoanimales">Manejo de animales</label>
@@ -903,7 +903,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckArcana()" id="checkarcana" class="form-check-input">
                         <input class="form-control" type="text" id="valuearcana" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Arcana">
-                        <input type="number" id="arcana" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="arcana" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="arcana">Arcana</label>
@@ -914,7 +914,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckAtletismo()" id="checkatletismo" class="form-check-input">
                         <input class="form-control" type="text" id="valueatletismo" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Atletismo">
-                        <input type="number" id="atletismo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="atletismo" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="atletismo">Atletismo</label>
@@ -925,7 +925,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckEngañar()" id="checkengañar" class="form-check-input">
                         <input class="form-control" type="text" id="valueengañar" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Engañar">
-                        <input type="number" id="engañar" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="engañar" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="engañar">Engañar</label>
@@ -936,7 +936,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckHistoria()" id="checkhistoria" class="form-check-input">
                         <input class="form-control" type="text" id="valuehistoria" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Historia">
-                        <input type="number" id="historia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="historia" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="historia">Historia</label>
@@ -947,7 +947,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckIntenciones()" id="checkintenciones" class="form-check-input">
                         <input class="form-control" type="text" id="valueintenciones" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="AveriguarIntenciones">
-                        <input type="number" id="averiguarintenciones" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="averiguarintenciones" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="averiguarintenciones">Averiguar intenciones</label>
@@ -958,7 +958,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckIntimidacion()" id="checkintimidacion" class="form-check-input">
                         <input class="form-control" type="text" id="valueintimidacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Intimidación">
-                        <input type="number" id="intimidacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="intimidacion" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="intimidacion">Intimidación</label>
@@ -969,7 +969,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckInvestigacion()" id="checkinvestigacion" class="form-check-input">
                         <input class="form-control" type="text" id="valueinvestigacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Investigación">
-                        <input type="number" id="investigacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="investigacion" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="investigacion">Investigación</label>
@@ -980,7 +980,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckMedicina()" id="checkmedicina" class="form-check-input">
                         <input class="form-control" type="text" id="valuemedicina" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Medicina">
-                        <input type="number" id="medicina" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="medicina" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="medicina">Medicina</label>
@@ -991,7 +991,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckNaturaleza()" id="checknaturaleza" class="form-check-input">
                         <input class="form-control" type="text" id="valuenaturaleza" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Naturaleza">
-                        <input type="number" id="naturaleza" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="naturaleza" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="naturaleza">Naturaleza</label>
@@ -1002,7 +1002,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckPercepcion()" id="checkpercepcion" class="form-check-input">
                         <input class="form-control" type="text" id="valuepercepcion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Percepción">
-                        <input type="number" id="percepcion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="percepcion" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="percepcion">Percepción</label>
@@ -1013,7 +1013,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckPersuasion()" id="checkpersuasion" class="form-check-input">
                         <input class="form-control" type="text" id="valuepersuasion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Persuasión">
-                        <input type="number" id="persuasion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="persuasion" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="persuasion">Persuasión</label>
@@ -1024,7 +1024,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckReligion()" id="checkreligion" class="form-check-input">
                         <input class="form-control" type="text" id="valuereligion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Religión">
-                        <input type="number" id="religion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="religion" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="religion">Religión</label>
@@ -1035,7 +1035,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckInterpretacion()" id="checkinterpretacion" class="form-check-input">
                         <input class="form-control" type="text" id="valueinterpretacion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Interpretación">
-                        <input type="number" id="interpretacion" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="interpretacion" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="interpretacion">Interpretación</label>
@@ -1046,7 +1046,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckManos();RevisarChecks();" id="checkmanos" class="form-check-input">
                         <input class="form-control" type="text" id="valuemanos" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="JuegoManos">
-                        <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="juegomanos">Juego de manos</label>
@@ -1057,7 +1057,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" class="form-check-input">
                         <input class="form-control" type="text" id="valuesigilo" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Sigilo">
-                        <input type="number" id="sigilo" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="sigilo" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="sigilo">Sigilo</label>
@@ -1068,7 +1068,7 @@ function CheckFuerza(){
                         <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" class="form-check-input">
                         <input class="form-control" type="text" id="valuesupervivencia" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Supervivencia">
-                        <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value=0 autocomplete="off">
+                        <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value=-5 autocomplete="off">
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="supervivencia">Supervivencia</label>

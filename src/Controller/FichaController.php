@@ -6,6 +6,7 @@ use App\Entity\Ficha;
 use App\Entity\Game;
 use App\Entity\UserGame;
 use App\Entity\Attributes;
+use Attribute;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,11 +70,22 @@ class FichaController extends AbstractController
     public function details(Game $game, Ficha $ficha): Response
     {
         $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {      
-        }
         $listaAtributos = [];
         for($i = 0; $i<count($ficha->getAtributos());$i++){
             $listaAtributos[$ficha->getAtributos()[$i]->getName()] = $ficha->getAtributos()[$i]->getAttribute();
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {     
+            $ficha->setCharacterName($_POST['_name']);
+            $ficha->setAge($_POST['_age']);
+            $ficha->setSexo($_POST['_gender']);
+            $atributos = ($_POST['_atributos']);
+            $nombres = ($_POST['_test']);
+            for($i = 0; $i<count($atributos);$i++){
+                $this->em->getRepository(Attributes::class)->findOneBy(['ficha' => $ficha,'name' => $nombres[$i]])->setAttribute($atributos[$i]);
+
+            }
+            $this->em->flush();
+            return $this->redirectToRoute('ficha',array('id' => $game->getId())); 
         }
 
         return $this->render('ficha/' . $game->getGameSystem() . '-detalles.html.twig', [

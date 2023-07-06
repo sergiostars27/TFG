@@ -36,9 +36,9 @@ function CheckFuerza(){
   }
 
   function CheckCarisma(){
-    var estadistica = document.getElementById("modificadorc").value;
+    var estadistica = document.getElementById("modificadorca").value;
     var competencia = document.getElementById("competencia").value;
-    var check = document.getElementById("checkc");
+    var check = document.getElementById("checkca");
     if(check.checked){
         
         
@@ -594,7 +594,7 @@ function CheckFuerza(){
         var eleminterpretacion = document.getElementById("valueinterpretacion");
         var elempersuasion = document.getElementById("valuepersuasion");
         var eleme1 = document.getElementById("valuee1");
-        var eleme1 = document.getElementById("valuee2");
+        var eleme2 = document.getElementById("valuee2");
         var eleme3 = document.getElementById("valuee3");
         var elemf1 = document.getElementById("valuef1");
         var elemf2 = document.getElementById("valuef2");
@@ -631,6 +631,50 @@ function CheckFuerza(){
         elemf3.value = document.getElementById("fallo3").checked;
     }
 
+    function confirmarCheckboxes(){
+        document.getElementById("checkf").checked={{atributos.CheckFuerza}};
+        document.getElementById("checkd").checked={{atributos.CheckDestreza}};
+        document.getElementById("checkc").checked={{atributos.CheckConstitución}};
+        document.getElementById("checkca").checked={{atributos.CheckCarisma}};
+        document.getElementById("checks").checked={{atributos.CheckSabiduria}};
+        document.getElementById("checki").checked={{atributos.CheckInteligencia}};
+        document.getElementById("checkacrobacias").checked={{atributos.CheckAcrobacias}};
+        document.getElementById("checkanimales").checked={{atributos.CheckAnimales}};
+        document.getElementById("checkarcana").checked={{atributos.CheckArcana}};
+        document.getElementById("checkatletismo").checked={{atributos.CheckAtletismo}};
+        document.getElementById("checkengañar").checked={{atributos.CheckEngañar}};
+        document.getElementById("checkhistoria").checked={{atributos.CheckHistoria}};
+        document.getElementById("checkintenciones").checked={{atributos.CheckIntenciones}};
+        document.getElementById("checkintimidacion").checked={{atributos.CheckIntimidación}};
+        document.getElementById("checkinvestigacion").checked={{atributos.CheckInvestigación}};
+        document.getElementById("checkmedicina").checked={{atributos.CheckMedicina}};
+        document.getElementById("checknaturaleza").checked={{atributos.CheckNaturaleza}};
+        document.getElementById("checkpercepcion").checked={{atributos.CheckPercepción}};
+        document.getElementById("checkpersuasion").checked={{atributos.CheckPersuasión}};
+        document.getElementById("checkinterpretacion").checked={{atributos.CheckInterpretación}};
+        document.getElementById("checkmanos").checked={{atributos.CheckManos}};
+        document.getElementById("checkreligion").checked={{atributos.CheckReligión}};
+        document.getElementById("checksigilo").checked={{atributos.CheckSigilo}};
+        document.getElementById("checksupervivencia").checked={{atributos.CheckSupervivencia}};
+        document.getElementById("fallo1").checked={{atributos.Fallo1}};
+        document.getElementById("fallo2").checked={{atributos.Fallo2}};
+        document.getElementById("fallo3").checked={{atributos.Fallo3}};
+        document.getElementById("exito1").checked={{atributos.Exito1}};
+        document.getElementById("exito2").checked={{atributos.Exito2}};
+        document.getElementById("exito3").checked={{atributos.Exito3}};
+        let to_select1 = document.getElementById('raza');
+        to_select1.value = "{{atributos.Raza}}";
+        let to_select2 = document.getElementById('clase');
+        to_select2.value = "{{atributos.Clase}}";
+        let to_select3 = document.getElementById('alineacion');
+        to_select3.value = "{{atributos.Alineacion}}";
+        let to_select4 = document.getElementById('transfondo');
+        to_select4.value = "{{atributos.Transfondo}}";
+        let to_select5 = document.getElementById('sexo');
+        to_select5.value = "{{ficha.sexo}}";
+
+    }
+
 </script>
 
 {{ parent() }}
@@ -639,7 +683,7 @@ function CheckFuerza(){
                     <input  type="hidden" name="_test[]" value="Raza">
                     <select id="raza" name="_atributos[]" value="Elfo" class="form-control">
                         <option value="Enano">Enano</option>
-                        <option value="Elfo">Elfo</option>
+                        <option value="Elfo" selected=false>Elfo</option>
                         <option value="Mediano">Mediano</option>
                         <option value="Humano">Humano</option>
                         <option value="Draconido">Draconido</option>
@@ -720,7 +764,7 @@ function CheckFuerza(){
         </div>
     </div>
 
-    <div class="container mt-3 bg-white border border-4 rounded border-dark" style="max-width: 90%;">
+    <div class="container mt-3 bg-white border border-4 rounded border-dark" style="max-width: 90%;" onload="confirmarCheckboxes();">
 
         <div class="row">
             <div class="col-md-1 col-xs-12">
@@ -860,11 +904,11 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-4">
                     <label for="competencais">Otras Competencias</label>
                     <input type="hidden" name="_test[]" value="OtrasCompetencias">
-                    <textarea type="text" id="competencias" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.OtrasCompetencias}}" rows="4"></textarea>
+                    <textarea type="text" id="competencias" name="_atributos[]" class="form-control" autocomplete="off" rows="4">{{atributos.OtrasCompetencias}}</textarea>
 
                     <label for="idiomas" class="mt-3">Idiomas</label>
                     <input type="hidden" name="_test[]" value="Idiomas">
-                    <textarea type="text" id="idiomas" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Idiomas}}" rows="3"></textarea>
+                    <textarea type="text" id="idiomas" name="_atributos[]" class="form-control" autocomplete="off" rows="3">{{atributos.Idiomas}}</textarea>
                 </div>
             </div>
 
@@ -1020,8 +1064,8 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckReligión">
-                        <input type="checkbox" oninput="CheckInterpretacion()" id="checkinterpretacion" class="form-check-input">
-                        <input class="form-control" type="text" id="valueinterpretacion" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckReligion()" id="checkreligion" class="form-check-input">
+                        <input class="form-control" type="text" id="valuereligion" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Religión">
                         <input type="number" id="religion" name="_atributos[]" class="form-control" value="{{atributos.Religión}}" autocomplete="off">
                     </div>
@@ -1042,8 +1086,8 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckManos">
-                        <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" class="form-check-input">
-                        <input class="form-control" type="text" id="valuesigilo" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckManos()" id="checkmanos" class="form-check-input">
+                        <input class="form-control" type="text" id="valuemanos" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="JuegoManos">
                         <input type="number" id="juegomanos" name="_atributos[]" class="form-control" value="{{atributos.JuegoManos}}" autocomplete="off">
                     </div>
@@ -1053,8 +1097,8 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckSigilo">
-                        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" class="form-check-input">
-                        <input class="form-control" type="text" id="valuesupervivencia" name="_atributos[]" value=false hidden>
+                        <input type="checkbox" oninput="CheckSigilo()" id="checksigilo" class="form-check-input">
+                        <input class="form-control" type="text" id="valuesigilo" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Sigilo">
                         <input type="number" id="sigilo" name="_atributos[]" class="form-control" value="{{atributos.Sigilo}}" autocomplete="off">
                     </div>
@@ -1064,7 +1108,8 @@ function CheckFuerza(){
 
                     <div class="form-check form-check-inline pt-1">
                         <input type="hidden" name="_test[]" value="CheckSupervivencia">
-                        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" name="_atributos[]" class="form-check-input">
+                        <input type="checkbox" oninput="CheckSupervivencia()" id="checksupervivencia" class="form-check-input">
+                        <input class="form-control" type="text" id="valuesupervivencia" name="_atributos[]" value=false hidden>
                         <input type="hidden" name="_test[]" value="Supervivencia">
                         <input type="number" id="supervivencia" name="_atributos[]" class="form-control" value="{{atributos.Supervivencia}}" autocomplete="off">
                     </div>
@@ -1138,17 +1183,20 @@ function CheckFuerza(){
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Exito1">
-                                <input type="checkbox" id="exito1" name="_atributos[]" class="form-check-input">
+                                <input type="checkbox" id="exito1" class="form-check-input">
+                                <input class="form-control" type="text" id="valuee1" name="_atributos[]" value=false hidden>
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Exito2">
-                                <input type="checkbox" id="exito2" name="_atributos[]" class="form-check-input">
+                                <input type="checkbox" id="exito2" class="form-check-input">
+                                <input class="form-control" type="text" id="valuee2" name="_atributos[]" value=false hidden>
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Exito3">
-                                <input type="checkbox" id="exito3" name="_atributos[]" class="form-check-input">
+                                <input type="checkbox" id="exito3" class="form-check-input">
+                                <input class="form-control" type="text" id="valuee3" name="_atributos[]" value=false hidden>
                             </div>
                         </div>
 
@@ -1159,17 +1207,20 @@ function CheckFuerza(){
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Fallo1">
-                                <input type="checkbox" id="fallo1" name="_atributos[]" class="form-check-input">
+                                <input type="checkbox" id="fallo1" class="form-check-input">
+                                <input class="form-control" type="text" id="valuef1" name="_atributos[]" value=false hidden>
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input type="hidden" name="_test[]" value="Fallo2">
-                                <input type="checkbox" id="fallo2" name="_atributos[]" class="form-check-input">
+                                <input type="checkbox" id="fallo2" class="form-check-input">
+                                <input class="form-control" type="text" id="valuef2" name="_atributos[]" value=false hidden>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input type="hidden" name="_test[]" value="Fallo3">
-                                <input type="checkbox" id="fallo3" name="_atributos[]" class="form-check-input">
+                                 <input type="hidden" name="_test[]" value="Fallo3">
+                                <input type="checkbox" id="fallo3" class="form-check-input">
+                                <input class="form-control" type="text" id="valuef3" name="_atributos[]" value=false hidden>
                             </div>
                         </div>
                     </div>
@@ -1229,7 +1280,7 @@ function CheckFuerza(){
                     <div class="pt-3">
                         <label for="accionesespeciales">Acciones especiales</label>
                         <input type="hidden" name="_test[]" value="AccionesEspeciales">
-                        <textarea type="text" id="accionesespeciales" name="_atributos[]" class="form-control" value="{{atributos.AccionesEspeciales}}" autocomplete="off" rows="6"></textarea>
+                        <textarea type="text" id="accionesespeciales" name="_atributos[]" class="form-control" autocomplete="off" rows="6">{{atributos.AccionesEspeciales}}</textarea>
                     </div>
                 </div>
             </div>
@@ -1237,19 +1288,19 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-4 mb-2">
                     <label for="ideales">Ideales</label>
                     <input type="hidden" name="_test[]" value="Ideales">
-                    <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Ideales}}" rows="2"></textarea>
+                    <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="2">{{atributos.Ideales}}</textarea>
 
                     <label for="rasgos_personalidad" class="pt-4">Rasgos de personalidad</label>
                     <input type="hidden" name="_test[]" value="RasgosPersonalidad">
-                    <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.RasgosPersonalidad}}" rows="2"></textarea>
+                    <textarea type="text" id="rasgos_personalidad" name="_atributos[]" class="form-control" autocomplete="off" rows="2">{{atributos.RasgosPersonalidad}}</textarea>
 
                     <label for="vinculos" class="pt-4">Vinculos</label>
                     <input type="hidden" name="_test[]" value="Vinculos">
-                    <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Vinculos}}" rows="2"></textarea>
+                    <textarea type="text" id="vinculos" name="_atributos[]" class="form-control" autocomplete="off" rows="2">{{atributos.Vinculos}}</textarea>
 
                     <label for="defectos" class="pt-4">Defectos</label>
                     <input type="hidden" name="_test[]" value="Defectos">
-                    <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Defectos}}" rows="2"></textarea>
+                    <textarea type="text" id="defectos" name="_atributos[]" class="form-control" autocomplete="off" rows="2">{{atributos.Defectos}}</textarea>
                 </div>
             </div>
             <div class="col-md-4 col-xs-12">
@@ -1281,7 +1332,7 @@ function CheckFuerza(){
                         <div class="col-md-10 col-xs-12 pt-2">
                             <label for="invetario">Inventario</label>
                             <input type="hidden" name="_test[]" value="Inventario">
-                            <textarea type="text" id="inventario" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.Inventario}}" rows="16"></textarea>
+                            <textarea type="text" id="inventario" name="_atributos[]" class="form-control" autocomplete="off" rows="16">{{atributos.Inventario}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -1291,12 +1342,14 @@ function CheckFuerza(){
                 <div class="p-2 text-center border border-4 rounded border-dark mt-4">
                     <label for="rasgosatributos" class="pt-2">Rasgos y atributos</label>
                     <input type="hidden" name="_test[]" value="RasgosAtributos">
-                    <textarea type="text" id="rasgosatributos" name="_atributos[]" class="form-control" autocomplete="off" value="{{atributos.RasgosAtributos}}" rows="16"></textarea>
+                    <textarea type="text" id="rasgosatributos" name="_atributos[]" class="form-control" autocomplete="off" rows="16">{{atributos.RasgosAtributos}}</textarea>
                 </div>
             </div>
         </div>
 
-
+    <script type="text/javascript">
+        confirmarCheckboxes();
+    </script>
 
     </div>
 
