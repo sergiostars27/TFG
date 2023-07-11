@@ -38,11 +38,27 @@ class UserController extends AbstractController
             $user->setPassword($hashedPassword);
             $this->em->persist($user);
             $this->em->flush();
-            return $this->redirectToRoute('userRegistration');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('user/index.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/home/profile', name: 'userProfile')]
+    public function userProfile(UserPasswordHasherInterface $passwordHasher): Response
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->getUser()->setEmail($_POST['_email']);
+            $hashedPassword = $passwordHasher->hashPassword(
+                $this->getUser(),
+                $_POST['_password']
+            );
+            $this->getUser()->setPassword($hashedPassword);
+            $this->em->flush();
+        }
+        return $this->render('user/profile.html.twig', [ 'user' => $this->getUser(),
         ]);
     }
 }

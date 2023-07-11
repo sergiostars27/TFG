@@ -27,7 +27,12 @@ class FichaController extends AbstractController
     public function index(Game $game): Response
     {
         $rol = $this->em->getRepository(UserGame::class)->findOneBy(['user' => $this->getUser(),'game' => $game])->isRol();
-        $fichas = $this->em->getRepository(Ficha::class)->findBy(['user' => $this->getUser(),'game' => $game]);
+        if($rol){
+            $fichas = $this->em->getRepository(Ficha::class)->findBy(['game' => $game]);
+        }
+        else{
+            $fichas = $this->em->getRepository(Ficha::class)->findBy(['user' => $this->getUser(),'game' => $game]);
+        }
         return $this->render('ficha/index.html.twig', [
             'controller_name' => 'FichaController',
             'fichas' => $fichas,
@@ -57,6 +62,7 @@ class FichaController extends AbstractController
             }
             $historial = new History($this->getUser()->getUsername() . " ha creado una ficha para el personaje " . $ficha->getCharacterName() . ".",$game,$this->getUser());
             $this->em->persist($ficha);
+            $this->em->persist($historial);
             $this->em->flush(); 
             return $this->redirectToRoute('ficha',array('id' => $game->getId()));      
         }

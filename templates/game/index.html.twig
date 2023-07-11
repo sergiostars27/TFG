@@ -10,18 +10,21 @@
             <div class="col-md-12 my-2">
                 {{form_label(form.name,'Nombre de la partida:')}}
                 {{form_widget(form.name, {attr:{'placeholder':'Partida...'}})}}
+                {{form_errors(form.name)}}
 
             </div>
 
             <div class="col-md-12 my-2">
                 {{form_label(form.cover,'Carátula de la partida:')}}
                 {{form_widget(form.cover)}}
+                {{form_errors(form.cover)}}
 
             </div>
 
             <div class="col-md-12 my-2">
                 {{form_label(form.GameSystem,'Sistema de juego:')}}
                 {{form_widget(form.GameSystem)}}
+                {{form_errors(form.GameSystem)}}
             </div>
 
             <div class="col-md-12 my-2">

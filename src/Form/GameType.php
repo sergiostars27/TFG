@@ -19,12 +19,11 @@ class GameType extends AbstractType
             ->add('name', TextType::class, [
                 'attr' => [
                     'autocomplete' => 'off'
-                ]
+                ],
             ])
             ->add('cover', FileType::class, [
                 'label' => 'imagen',
                 'mapped' => false,
-                'required' => false,
                 ])
             ->add('GameSystem', ChoiceType::class, [
                 'choices' => [

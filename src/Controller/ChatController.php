@@ -50,7 +50,7 @@ class ChatController extends AbstractController
             }
                 $update = new Update(
                     'https://example.com/dice/' . trim($game->getId()),
-                    json_encode(['status' => $randomNumber])
+                    json_encode(['status' => $randomNumber, 'user' => $this->getUser()->getUsername()])
                 );
         
                 $hub->publish($update);

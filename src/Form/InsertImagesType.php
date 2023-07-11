@@ -18,7 +18,6 @@ class InsertImagesType extends AbstractType
             ->add('imageList', FileType::class, [
                 'label' => 'imagen',
                 'mapped' => false,
-                'required' => false,
                 ])
             ->add('submit', SubmitType::class,
             [

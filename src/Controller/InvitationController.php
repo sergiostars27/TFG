@@ -39,7 +39,7 @@ class InvitationController extends AbstractController
                 $error = "No existe un usuario con ese nombre";
             }
             else{
-                $invitation_past= $this->em->getRepository(Invitation::class)->findOneBy(['sender' => $this->getUser(),'reciver' => $reciver]);
+                $invitation_past= $this->em->getRepository(Invitation::class)->findOneBy(['sender' => $this->getUser(),'reciver' => $reciver,'game' => $game]);
                 $user_game = $this->em->getRepository(UserGame::class)->findOneBy(["game" => $game,"user" => $reciver]);
                 if($user_game != null){
                     $error = "El usuario ya se encuentra en la partida";  
