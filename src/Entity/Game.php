@@ -27,9 +27,6 @@ class Game
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: UserGame::class, orphanRemoval: true)]
     private Collection $users;
 
-    #[ORM\OneToMany(mappedBy: 'game', targetEntity: Record::class, orphanRemoval: true)]
-    private Collection $records;
-
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: Invitation::class, orphanRemoval: true)]
     private Collection $invitations;
 
@@ -51,7 +48,6 @@ class Game
         $this->cover = $cover;
         $this->GameSystem = $GameSystem;
         $this->users = new ArrayCollection();
-        $this->records = new ArrayCollection();
         $this->invitations = new ArrayCollection();
         $this->messasges = new ArrayCollection();
         $this->histories = new ArrayCollection();
@@ -129,36 +125,6 @@ class Game
             // set the owning side to null (unless already changed)
             if ($user->getGame() === $this) {
                 $user->setGame(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Record>
-     */
-    public function getRecords(): Collection
-    {
-        return $this->records;
-    }
-
-    public function addRecord(Record $record): self
-    {
-        if (!$this->records->contains($record)) {
-            $this->records->add($record);
-            $record->setGame($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecord(Record $record): self
-    {
-        if ($this->records->removeElement($record)) {
-            // set the owning side to null (unless already changed)
-            if ($record->getGame() === $this) {
-                $record->setGame(null);
             }
         }
 

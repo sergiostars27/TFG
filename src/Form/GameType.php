@@ -28,7 +28,7 @@ class GameType extends AbstractType
             ->add('GameSystem', ChoiceType::class, [
                 'choices' => [
                     'D&D' => 'D&D', 
-                    'Llamada de Cthulhu' => 'Llamada de Cthulhu',
+                    'Fate' => 'Fate',
 
                 ],
             ])

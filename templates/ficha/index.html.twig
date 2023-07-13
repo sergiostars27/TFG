@@ -13,8 +13,8 @@
                         <a href="{{ path('fichaDetalles', {game:game.id, ficha:ficha.id}) }}">
                         {% if game.GameSystem == "D&D" %}
                             <img src="/img/DnD.png" class="card-img-top"> 
-                        {% elseif game.GameSystem == "Llamada de Cthulhu" %}
-                            <img src="/img/cthulhu.png" class="card-img-top"> 
+                        {% elseif game.GameSystem == "Fate" %}
+                            <img src="/img/Fate.jpg" class="card-img-top"> 
                         {% endif %}
                         </a>
                         <h1 class="card-title"> {{ficha.characterName}} </h1>

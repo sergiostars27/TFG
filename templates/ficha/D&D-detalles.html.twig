@@ -678,7 +678,7 @@ function CheckFuerza(){
 </script>
 
 {{ parent() }}
-                <div class="col-md-4 col-xs-12 pb-3">
+                <div class="col-md-12 col-xs-12 pb-3">
                     <label for="raza">Raza</label>
                     <input  type="hidden" name="_test[]" value="Raza">
                     <select id="raza" name="_atributos[]" value="Elfo" class="form-control">
@@ -693,8 +693,11 @@ function CheckFuerza(){
                         <option value="Tiefling">Tiefling</option>
                     </select>
                 </div>
+            </div>
 
-                <div class="col-md-4 col-xs-12 pb-3">
+            <div class="col-4 p-3 row">
+
+                <div class="col-md-6 col-xs-12 pb-3">
                     <label for="clase">Clase</label>
                     <input type="hidden" name="_test[]" value="Clase">
                     <select id="clase" name="_atributos[]" class="form-control">
@@ -713,7 +716,7 @@ function CheckFuerza(){
                     </select>
                 </div>
 
-                <div class="col-md-4 col-xs-12 pb-3">
+                <div class="col-md-6 col-xs-12 pb-3">
                     <label for="alineacion">Alineación</label>
                     <input type="hidden" name="_test[]" value="Alineacion">
                     <select id="alineacion" name="_atributos[]" class="form-control">
@@ -729,7 +732,7 @@ function CheckFuerza(){
                     </select>
                 </div>
 
-                <div class="col-md-4 col-xs-12 pb-3">
+                <div class="col-md-6 col-xs-12 pb-3">
                     <label for="transfondo">Transfondo</label>
                     <input type="hidden" name="_test[]" value="Transfondo">
                     <select id="transfondo" name="_atributos[]" class="form-control">
@@ -749,13 +752,13 @@ function CheckFuerza(){
                     </select>
                 </div>
 
-                <div class="col-md-2 col-xs-12 pb-3">
+                <div class="col-md-3 col-xs-12 pb-3">
                     <label for="altura">Altura</label>
                     <input type="hidden" name="_test[]" value="Altura">
                     <input type="number" id="altura" name="_atributos[]" class="form-control" value="{{atributos.Altura}}" autocomplete="off">
                 </div>
 
-                <div class="col-md-2 col-xs-12 pb-3">
+                <div class="col-md-3 col-xs-12 pb-3">
                     <label for="peso">Peso</label>
                     <input type="hidden" name="_test[]" value="Peso">
                     <input type="number" id="name" name="_atributos[]" class="form-control" value="{{atributos.Peso}}" autocomplete="off">

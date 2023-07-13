@@ -1,0 +1,237 @@
+{% extends 'base-creacion.html.twig' %}
+
+{% block title %}Hello FichaController!{% endblock %}
+
+{% block body %}
+
+{{ parent() }}
+
+                <div class="col-md-12 col-xs-12 pb-3">
+                    <label for="CR">Capacidad de recuperación</label>
+                    <input type="hidden" name="_test[]" value="CapacidadRecuperacion">
+                    <input type="number" id="CR" step="0.01" name="_atributos[]" class="form-control" value="0" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-4 p-3 row">
+                    <div class="col-md-12 col-xs-12 pb-3">
+                        <label for="ideales">Descripción</label>
+                        <input type="hidden" name="_test[]" value="Descripcion">
+                        <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="5"></textarea>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 bg-white border border-4 rounded border-dark" style="max-width: 90%;">
+        <div class="row gx-2 px-1">
+            <div class="col-md-5 col-xs-12 p-2">
+                <label for="arma">Apectos</label>
+                <div class="pb-4">
+                <input type="hidden" name="_test[]" value="ConceptoPrincipal">
+                <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Concepto principal" autocomplete="off">
+                </div>
+                <div class="pb-4">
+                <input type="hidden" name="_test[]" value="Complicacion">
+                <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Complicación" autocomplete="off">
+                </div>
+                <div class="pb-4">
+                <input type="hidden" name="_test[]" value="Vacio1">
+                <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                </div>
+                <div class="pb-4">
+                <input type="hidden" name="_test[]" value="Vacio2">
+                <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                </div>
+
+            </div>
+
+                <div class="col-md-6 offset-md-1 col-xs-12 p-2">
+                <label for="arma">Habilidades</label>
+                    <div class="row">
+                        <div class="col-md-2 col-xs-12 p-2">
+                            Excelente (+5)
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="e1">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="e2">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="e3">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="e4">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="e5">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>    
+
+                        <div class="col-md-2 col-xs-12 p-2">
+                            Grande (+4)
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="g1">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="g2">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="g3">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="g4">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="g5">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>    
+
+                        <div class="col-md-2 col-xs-12 p-2">
+                            Grande (+3)
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="gr1">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="gr2">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="gr3">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="gr4">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="gr5">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+
+                        <div class="col-md-2 col-xs-12 p-2">
+                            Bueno (+2)
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="b1">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="b2">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="b3">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="b4">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="b5">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+
+                        <div class="col-md-2 col-xs-12 p-2">
+                            Normal (+1)
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="n1">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="n2">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="n3">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="n4">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="col-md-2 col-xs-12 p-2">
+                            <input type="hidden" name="_test[]" value="n5">
+                            <input type="text" id="name" name="_atributos[]" class="form-control" autocomplete="off">
+                        </div>             
+                    </div>
+                </div>
+                
+        </div>
+
+        <div class="row">
+        <div class="col-md-6 col-xs-12 p-2">
+            <label for="ideales">Extras</label>
+            <input type="hidden" name="_test[]" value="Extras">
+            <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="5"></textarea>
+        </div>
+        <div class="col-md-6 col-xs-12 p-2">
+            <label for="ideales">Proezas</label>
+            <input type="hidden" name="_test[]" value="Proezas">
+            <textarea type="text" id="ideales" name="_atributos[]" class="form-control" autocomplete="off" rows="5"></textarea>
+        </div>
+        </div>
+        <div class="row pb-2">
+        <div class="col-md-4 col-xs-12 p-2">
+            <div class="row pb-2">
+                <div class="col-md-12 col-xs-12 pb-3">
+                    <label for="CR">Estrés físico</label>
+                    <input type="hidden" name="_test[]" value="estresf">
+                    <input type="number" id="CR" step="0.01" name="_atributos[]" class="form-control" value="0" autocomplete="off">
+                </div>
+                <div class="col-md-12 col-xs-12 pb-3">
+                    <label for="CR">Estrés mental</label>
+                    <input type="hidden" name="_test[]" value="estresm">
+                    <input type="number" id="CR" step="0.01" name="_atributos[]" class="form-control" value="0" autocomplete="off">
+                </div>                
+            </div>
+        </div>
+        <div class="col-md-8 col-xs-12 p-2">
+        <label for="CR">Consecuencias</label>
+            <div class="row pb-2">
+                    <div class="col-md-6 col-xs-12 pb-2">
+                        <input type="hidden" name="_test[]" value="leve1">
+                        <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Leve" autocomplete="off">
+                    </div>
+                    <div class="col-md-6 col-xs-12 pb-2">
+                        <input type="hidden" name="_test[]" value="leve2">
+                        <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Leve" autocomplete="off">
+                    </div>
+                    <div class="col-md-6 col-xs-12 pb-2">
+                        <input type="hidden" name="_test[]" value="mod1">
+                        <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Moderado" autocomplete="off">
+                    </div>
+                    <div class="col-md-6 col-xs-12 pb-2">
+                        <input type="hidden" name="_test[]" value="mod2">
+                        <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Moderado" autocomplete="off">
+                    </div>
+                    <div class="col-md-6 col-xs-12 pb-2">
+                        <input type="hidden" name="_test[]" value="grave1">
+                        <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Grave" autocomplete="off">
+                    </div>
+                    <div class="col-md-6 col-xs-12 pb-2">
+                        <input type="hidden" name="_test[]" value="grave2">
+                        <input type="text" id="name" name="_atributos[]" class="form-control" placeholder="Grave" autocomplete="off">
+                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+        <div class="container my-3" style="max-width: 92%;">
+        <button class="btn btn-success btn-block my-2" type="submit";>Crear</button>
+        </div>
+        </form>
+{% endblock %}

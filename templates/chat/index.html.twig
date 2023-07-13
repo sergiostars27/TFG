@@ -108,10 +108,10 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 
     {% block javascripts %}
     <script>
-        var dieFace = '<svg width="50" height="50"><polygon points="3,3 3,47 47,47 47,3" style="stroke: black; fill: none" /><text fill="black" x="20" y="30" font-family="Verdana" font-size="18">REPLACEME</text></svg>';
+        var dieFace = '<svg width="50" height="50"><polygon points="3,3 3,47 47,47 47,3" style="stroke: black; fill: none" /><text fill="black" x="20" y="30" font-family="Verdana" font-size="18">SUSTITUTO</text></svg>';
         const eventSource1 = new EventSource("{{ mercure('https://example.com/books/' ~ game.id)|escape('js') }}");
         eventSource1.onmessage = event => { 
-      // Will be called every time an update is published by the server
+
           var content;
           if((JSON.parse(event.data)).user != "{{user.username}}"){
             content = '<a class="d-flex flex-row bd-highlight mt-3">'+(JSON.parse(event.data)).user+":<br><a>"+(JSON.parse(event.data)).status+"<br>";
@@ -126,7 +126,7 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 
         const eventSource2 = new EventSource("{{ mercure('https://example.com/dice/' ~ game.id)|escape('js') }}");
         eventSource2.onmessage = event => { 
-      // Will be called every time an update is published by the server
+
           valores = JSON.parse(event.data).status;
           o = document.getElementById('recivedDice');
 	        p = o.innerHTML;
@@ -138,7 +138,7 @@ input {border-style: none; border-bottom-style: solid; border-width:thin;}
 
            p = '<a">'+p.concat(JSON.parse(event.data).user + ':</a>');
           for(const element of valores){
-            p = p.concat("<span> " + dieFace.replace('REPLACEME', element.toString()) + " </span>");
+            p = p.concat("<span> " + dieFace.replace('SUSTITUTO', element.toString()) + " </span>");
           }
           o.innerHTML = p;
           window.scroll(0, document.documentElement.scrollHeight);

@@ -46,9 +46,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserGame::class, orphanRemoval: true)]
     private Collection $games;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Record::class, orphanRemoval: true)]
-    private Collection $records;
-
     #[ORM\OneToMany(mappedBy: 'sender', targetEntity: Invitation::class, orphanRemoval: true)]
     private Collection $invitationsSend;
 
@@ -71,7 +68,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
         $this->email = $email;
         $this->games = new ArrayCollection();
-        $this->records = new ArrayCollection();
         $this->invitationsSend = new ArrayCollection();
         $this->InvitationsRecived = new ArrayCollection();
         $this->messages = new ArrayCollection();
@@ -186,36 +182,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($game->getUser() === $this) {
                 $game->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Record>
-     */
-    public function getRecords(): Collection
-    {
-        return $this->records;
-    }
-
-    public function addRecord(Record $record): self
-    {
-        if (!$this->records->contains($record)) {
-            $this->records->add($record);
-            $record->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecord(Record $record): self
-    {
-        if ($this->records->removeElement($record)) {
-            // set the owning side to null (unless already changed)
-            if ($record->getUser() === $this) {
-                $record->setUser(null);
             }
         }
 
